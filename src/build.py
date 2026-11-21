@@ -104,6 +104,8 @@ def render(d):
     if t == "flow5":
         cs = "".join(f'<div class="card"><h3>{e(h)}</h3><p>{e(x)}</p></div>' for h, x in d["steps"])
         return f'{head(d)}<div class="cards c{len(d["steps"])} arrows flow5">{cs}</div>{foot(d)}'
+    if t == "gb":  # 公版整頁圖：不加標題、不改排版
+        return f'<div class="gbfull"><img src="{d["img"]}" alt="{e(d.get("gbno",""))}"></div>'
     if t == "shot2":
         imgs = "".join(f'<img src="{SHOT}{i}" alt="">' for i in d["imgs"])
         cls = "three" if len(d["imgs"]) == 3 else "two"
@@ -215,6 +217,10 @@ for d in S:
     CUR_SUP = d.get("sup", [])
     sh, cnt = sup_html(label)
     badge = f'<button class="supbtn" title="補充資料（S）">📎 補充（{cnt} 則）</button>' if cnt else ""
+    if d.get("badge"):
+        body = f'<div class="tpbadge">{e(d["badge"])}</div>' + body
+    if d.get("gbno"):
+        body += f'<div class="gbno">{e(d["gbno"])}</div>'
     slides.append(f'<section class="slide t-{d["t"]}" id="p{label}" data-label="{label}" data-sec="{sec}"><div class="inner">{body}</div>{badge}<div class="pno">{label}</div></section>')
     side.append({"n": label, "notes": note, "sup": sh})
 

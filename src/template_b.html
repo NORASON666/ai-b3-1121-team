@@ -334,6 +334,41 @@ body.uiidle #bar,body.uiidle #secchip{opacity:0;pointer-events:none}
 #zoom{position:fixed;inset:0;z-index:9999;background:rgba(10,20,45,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
 #zoom.on{display:flex}
 #zoom img{max-width:96vw;max-height:96vh;object-fit:contain;border-radius:10px;background:#fff;box-shadow:0 10px 60px rgba(0,0,0,.5)}
+
+/* 風格切換與動態偏好 */
+#secchip:focus-within,#bar:focus-within{opacity:1;pointer-events:auto}
+body.uiidle #secchip:focus-within,body.uiidle #bar:focus-within{opacity:1;pointer-events:auto}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* 普普雜誌：粗框、網點與紙張貼紙 */
+.slide,.slide[data-sec]{--navy:#111;--ink:#161616;--blue:#006f69;--sky:#2bb5a8;--pale:#ffe780;--orange:#e85e25;--line:#111;--muted:#444;--paper:#fffdf4;color:#111;background-color:#fffdf4!important;background-image:radial-gradient(#17171724 1.8px,transparent 2px)!important;background-size:19px 19px!important}
+.slide:not(.t-cover):not(.t-closing):not(.t-divider)::after{display:none}
+.slide::before,.slide[data-sec]::before{height:12px;background:repeating-linear-gradient(90deg,#111 0 80px,#ffd23f 80px 160px)}
+.title,.dv-title,.cover h1{color:#111;letter-spacing:-.035em}.title span,.slide[data-sec] .title span{background:linear-gradient(transparent 57%,#ffd23f 57%);border-bottom:6px solid #111;border-radius:0}
+.slide .kicker,.slide[data-sec] .kicker{background:#111;color:#fff;border-radius:0;transform:rotate(-1deg)}
+.cover{background:radial-gradient(circle at 78% 25%,#ffd23f 0 240px,transparent 242px),linear-gradient(145deg,#fffdf4,#fff2a9)}
+.cover-text{background:#fff;border:7px solid #111;border-radius:0;box-shadow:22px 22px 0 #111;transform:rotate(-1deg)}
+.cover-text::before{background:#e85e25;height:12px;left:0;right:0}.cover .org,.cover .hand,.cover .who b{color:#006f69}.cover .meta,.cover .who{color:#111}
+mark{background:#ffd23f;color:#111}.cover h1 mark{border-bottom:7px solid #111}
+.card,.news,.navcard,.steps li,.ni-steps li{background:#fff!important;border:4px solid #111!important;border-radius:2px!important;box-shadow:9px 9px 0 #111!important;color:#111}
+.card:nth-child(2n),.news:nth-child(2n),.navcard:nth-child(2n){background:#fff3bf!important}
+.card h3,.navcard .nv-t,.situation,.quote,.dv-sub{color:#111}.foot{background:#ffd23f;color:#111;border:4px solid #111;border-left:12px solid #e85e25;border-radius:0}
+.tbl{border:4px solid #111;border-radius:0;background:#fff}.tbl th,.slide[data-sec] .tbl th:nth-child(3){background:#111;color:#fff}.tbl td,.slide[data-sec] .tbl td:nth-child(3){background:#fff;color:#111;border-color:#111}.tbl td:first-child{color:#111}
+.shot img,.st-img img,.ni-img img,.wa-art img{border:4px solid #111;border-radius:0;box-shadow:10px 10px 0 #111}.wa-art img[src*="illus/"]{mix-blend-mode:normal}
+.shot,.st-img,.ni-img,.wa-art{position:relative}.shot::before,.st-img::before,.ni-img::before,.wa-art::before{content:"";position:absolute;z-index:2;top:3px;left:42%;width:130px;height:30px;background:#ffd23fcc;border:1px solid #1115;transform:rotate(-5deg);pointer-events:none}
+.slide.t-divider .dvno{color:#ffd23f;opacity:.7}.cooc-chip,.slide[data-sec] .cooc-chip{background:#006f69;border:3px solid #111;border-radius:0;box-shadow:5px 5px 0 #111}
+#tpbar i{background:#ffd23f;color:#111}
+@media (prefers-reduced-motion:no-preference){.slide.on .inner{animation:page-slam .5s cubic-bezier(.2,1.2,.3,1) both}@keyframes page-slam{from{opacity:0;transform:translateX(60px) rotateY(-8deg)}to{opacity:1;transform:none}}}
+
+/* 公版整頁圖＋臺北補充標籤 */
+.slide.t-gb{background:#fff!important;background-image:none!important}
+.slide.t-gb::before,.slide.t-gb::after{display:none!important}
+.slide.t-gb .inner{inset:0!important;animation:none}
+.gbfull{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#fff}
+.gbfull img{width:100%;height:100%;object-fit:contain}
+.slide.t-gb .kscene,.slide.t-gb #tpbar,.slide.t-gb .pno{display:none!important}
+.gbno{position:absolute;right:14px;bottom:8px;font:500 15px "Noto Sans TC";color:#888;background:rgba(255,255,255,.75);padding:2px 10px;border-radius:8px;z-index:3}
+.tpbadge{position:absolute;right:230px;top:-46px;z-index:5;font:900 26px "Noto Sans TC";color:#fff;background:linear-gradient(90deg,#2BB5A8,#F0A23B);padding:6px 22px;border-radius:0 0 14px 14px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
 </style>
 </head>
 <body>
@@ -357,9 +392,10 @@ body.uiidle #bar,body.uiidle #secchip{opacity:0;pointer-events:none}
 <div id="timerBadge" title="點一下打開計時設定"><span id="tLeft">05:00</span><span class="bar"><i id="tBar"></i></span></div>
 <div id="edgeGlow"></div>
 <div id="timesUp">時間到！</div>
-<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button data-href="g3.html" class="g3btn">上午報告 第三組</button></nav>
+<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="g3.html" class="g3btn">上午報告 第三組</button></nav>
 <nav id="bar"><button id="bPrev">◀</button><button id="bTimer">⏱ 計時 T</button><button id="bGrid">總覽 O</button><button id="bSup">補充 S</button><button id="bNotes">講稿 N</button><button id="bFull">全螢幕 F</button><button id="bNext">▶</button></nav>
 <script>
+document.getElementById('switchStyle').onclick=()=>{location.href='a.html'+location.hash;};
 const SIDE=/*SIDE*/[];
 const slides=[...document.querySelectorAll('.slide')];
 let cur=0, tab='sup';
@@ -458,7 +494,7 @@ addEventListener('keydown',e=>{if(z.classList.contains('on')){e.stopImmediatePro
 // 封面／章節／結尾：臺北天際線＋101＋往上飄的酷AI 對話泡泡；內容頁：右上角旋轉的小 101
 (function(){if(!window.THREE)return;
 const cv=document.createElement('canvas');
-cv.style.cssText='position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none;mix-blend-mode:multiply;z-index:0';
+cv.style.cssText='position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none;mix-blend-mode:normal;z-index:0';
 let R;try{R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});}catch(e){return;}
 document.documentElement.classList.add('three');
 R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(1920,1080,false);
@@ -482,14 +518,14 @@ function pulses(g,edges,n,color,size){const S=Array.from({length:n},()=>({e:edge
 const net=layer(),P=[];
 while(P.length<130){const a=(rnd()-.5)*1900,b=(rnd()-.5)*1000,d=(rnd()-.5)*500;if(Math.abs(a)<520&&Math.abs(b)<230)continue;P.push(V(a,b,d));}
 const E=[];P.forEach((a,i)=>{P.map((b,j)=>[a.distanceTo(b),j]).sort((u,v)=>u[0]-v[0]).slice(1,4).forEach(([d,j])=>{if(d<330&&i<j)E.push([P[i],P[j]]);});});
-net.lines(E.flat(),0x6FA8DC,.6);net.dots(P,0x3D7DC8,16,.75);
+net.lines(E.flat(),0x111111,.6);net.dots(P,0x3D7DC8,16,.75);
 const netPulse=pulses(net,E,22,0xF2994A,20);
 
 // ── 2. 臺北 101（低多邊形線框）：封面／章節是天際線大圖，內容頁是右上角小模型
 function make101(g,s,edgeCol){
   // 臺北 101：玻璃藍綠、有光影；兩個面受光不同，看得出立體
   const M=(c)=>g.mat(new THREE.MeshLambertMaterial({color:c,flatShading:true}),1);
-  const glass=M(0x9FD3CF),glass2=M(0x7FBFC0),podium=M(0xC9DCE8),cap=M(0xB7D8D4),
+  const glass=M(0x2BB5A8),glass2=M(0x007c74),podium=M(0xFFD23F),cap=M(0xF08036),
         edge=g.mat(new THREE.LineBasicMaterial({color:edgeCol}),.55),band=g.mat(new THREE.LineBasicMaterial({color:0xFFFFFF}),.7);
   const tw=new THREE.Group();g.add(tw);let y=0;
   const put=(rt,rb,h,m,bands)=>{const geo=new THREE.CylinderGeometry(rt*s,rb*s,h*s,4,1);const me=new THREE.Mesh(geo,m);me.position.y=y+h*s/2;me.rotation.y=Math.PI/4;tw.add(me);
@@ -517,7 +553,7 @@ const BUB=[['酷AI',0xF0A23B,'#F0A23B'],['AI',0x3B82C4,'#3B82C4'],['?',0x5AA9E6,
 // 2a. 天際線（封面／章節／結尾）
 const city=layer();city.position.set(0,-345,0);
 const T101=make101(city,.72,0x1F3A6E);T101.position.set(-470,0,40);T101.rotation.y=.42;
-const bx=[],bedge=city.mat(new THREE.LineBasicMaterial({color:0x6FA8DC}),.75),bface=city.mat(new THREE.MeshBasicMaterial({color:0xE7F1FB}),1),farEdge=city.mat(new THREE.LineBasicMaterial({color:0xB9D3EA}),.5),farFace=city.mat(new THREE.MeshBasicMaterial({color:0xF5F9FD}),1);
+const bx=[],bedge=city.mat(new THREE.LineBasicMaterial({color:0x111111}),.75),bface=city.mat(new THREE.MeshBasicMaterial({color:0xFFD23F}),1),farEdge=city.mat(new THREE.LineBasicMaterial({color:0xB9D3EA}),.5),farFace=city.mat(new THREE.MeshBasicMaterial({color:0xF08036}),1);
 for(let i=0;i<34;i++){const w=30+rnd()*60,h=40+rnd()*170,d=30+rnd()*50,x=-760+i*46+rnd()*20;if(Math.abs(x+470)<70)continue;
   const far=i%2===0,geo=new THREE.BoxGeometry(w,h,d),m=new THREE.Mesh(geo,far?farFace:bface);m.position.set(x,h/2,far?-390:-120);city.add(m);
   const l=new THREE.LineSegments(new THREE.EdgesGeometry(geo),far?farEdge:bedge);l.position.copy(m.position);city.add(l);bx.push(m.position.clone().add(V(0,h/2,0)));}
