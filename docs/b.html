@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>把指引帶進臺北教室</title>
+<meta name="description" content="2026-11-21 B3 數位教學指引儲備講師培訓工作坊試講：把《115 年中小學教師數位與 AI 教學指引》三個模組接到臺北教室與酷AI，用真實新聞看七大風險。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E3A6E; --ink:#22314d; --blue:#3B82C4; --sky:#5AA9E6; --pale:#DCEEFB; --paper:#FBFDFF;
+  --orange:#F0A23B; --soft:#F3F7FB; --line:#C9D9EA; --muted:#5d6b80;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#E9EFF6;color:var(--ink);font-family:"Noto Sans TC",system-ui,sans-serif}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#deck{width:1920px;height:1080px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--paper);display:none;overflow:hidden;
+  background-image:radial-gradient(circle at 1px 1px,#e3ecf6 1px,transparent 0);background-size:28px 28px}
+.slide.on{display:block}
+.slide:not(.t-cover):not(.t-closing):not(.t-divider)::after{content:"";position:absolute;right:60px;top:36px;width:360px;height:160px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='160'><path d='M10 140 C 90 150 120 60 200 90 S 280 40 300 40' fill='none' stroke='%235AA9E6' stroke-width='3' stroke-dasharray='8 9'/><path d='M300 40 l52 -24 -18 50 -12 -16 z' fill='white' stroke='%231E3A6E' stroke-width='3' stroke-linejoin='round'/></svg>") no-repeat;opacity:.7;pointer-events:none}
+.slide::before{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(90deg,var(--sky),var(--pale) 60%,var(--orange))}
+.inner{position:absolute;inset:70px 120px 70px 120px;display:flex;flex-direction:column;z-index:1}
+.three .slide:not(.t-cover):not(.t-closing):not(.t-divider)::after{display:none}
+@media (prefers-reduced-motion:no-preference){.slide.on .inner{animation:slidein .4s cubic-bezier(.2,.7,.2,1)}}
+.slide .kicker{align-self:flex-start;width:fit-content;font-size:24px;color:#fff;background:#18409a;border-radius:999px;padding:5px 22px 6px;margin-bottom:12px;letter-spacing:.08em}
+.slide .kicker::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:#f2a516;margin-right:12px;vertical-align:2px}
+.slide .kicker.big{font-size:32px;padding:8px 30px 9px;margin-bottom:22px}
+@keyframes slidein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.pno{position:absolute;right:40px;bottom:30px;font:700 26px "Noto Sans TC",sans-serif;color:var(--blue)}
+.kicker{font:700 30px "Noto Sans TC",sans-serif;color:var(--blue);letter-spacing:.06em;margin-bottom:6px}
+.kicker::before{content:"✎ ";color:var(--orange)}
+.kicker.big{font-size:44px}
+.title{margin:0 0 40px;font-weight:900;font-size:76px;color:var(--navy);line-height:1.15}
+.title span{background:linear-gradient(transparent 62%,var(--pale) 62%);padding:0 10px;
+  border-bottom:6px solid var(--orange);border-radius:0 0 40px 6px/0 0 10px 4px}
+.foot{font-size:38px;font-weight:700;color:var(--navy);margin:28px 0 0;padding:14px 24px;background:#FFF6E6;border-left:10px solid var(--orange);border-radius:6px}
+.src{position:absolute;left:0;bottom:-34px;margin:0;font-size:22px;color:var(--muted)}
+.link{font-size:32px;color:var(--blue);margin-top:20px;font-weight:700}
+mark{background:linear-gradient(transparent 55%,var(--pale) 55%);color:inherit}
+/* 封面 */
+.cover{position:absolute;inset:-70px -120px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 25%,rgba(255,255,255,.7),transparent 58%)}
+.cover .ill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover-text{position:relative;text-align:center;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(245,250,255,.91));padding:44px 76px;border:2px solid rgba(255,255,255,.95);border-radius:36px;box-shadow:0 24px 80px rgba(30,58,110,.14),0 0 70px 30px rgba(251,253,255,.72)}
+.cover-text::before{content:"";position:absolute;top:0;left:38%;right:38%;height:6px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,var(--blue),var(--orange))}
+.cover .org{font:700 34px "Noto Sans TC",sans-serif;color:var(--blue)}
+.cover h1{font-weight:900;font-size:112px;line-height:1.15;color:var(--navy);margin:18px 0}
+.cover h1 mark{border-bottom:8px solid var(--orange)}
+.cover .meta{font-size:40px;font-weight:700;color:var(--ink)}
+.cover .who{margin-top:26px;display:flex;gap:40px;justify-content:center;font-size:36px}
+.cover .who b{font:700 46px "Noto Sans TC",sans-serif;color:#B5462E}
+.cover .hand{font:700 64px "Noto Sans TC",sans-serif;letter-spacing:.08em;color:var(--blue)}
+/* 章節頁 */
+.divider{display:flex;align-items:center;height:100%;gap:60px}
+.dv-text{flex:1}
+.dv-title{font-weight:900;font-size:130px;color:var(--navy);margin:10px 0;line-height:1.1}
+.dv-sub{font:700 60px "Noto Sans TC",sans-serif;color:var(--ink);border-bottom:8px solid var(--orange);display:inline-block;padding-bottom:6px}
+.dv-ill{width:760px;height:760px;flex:none;display:flex;align-items:center}
+.dv-ill .ill{width:100%;height:100%;object-fit:contain;transform:rotate(2deg);filter:drop-shadow(0 24px 28px rgba(30,58,110,.16))}
+/* 條列 */
+.bul{margin:auto 0;padding-left:1.2em;font-size:50px;line-height:1.55}
+.bul li{margin:8px 0}
+.bul li::marker{color:var(--orange)}
+.bul li.hl{font-weight:700;color:var(--navy)}
+ol.bul li::marker{font-weight:900;color:var(--blue)}
+.t-bullets .bul{font-size:56px;line-height:1.6}
+/* 卡片：手繪框 */
+.cards{display:grid;gap:34px;flex:1;min-height:0;grid-auto-rows:1fr;padding:12px 0}
+.c2{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.c5{grid-template-columns:repeat(5,1fr)}.c1{grid-template-columns:1fr}
+.card{position:relative;display:flex;flex-direction:column;justify-content:center;background:#fff;border:3px solid var(--navy);padding:30px 34px;
+  border-radius:255px 18px 225px 18px/18px 225px 18px 255px;box-shadow:8px 10px 0 var(--pale)}
+.card h3{margin:0 0 14px;font-size:44px;font-weight:900;color:var(--navy)}
+.card p{margin:0;font-size:36px;line-height:1.5}
+.c3 .card h3{font-size:48px}.c3 .card p{font-size:40px}
+.c4 .card h3{font-size:44px}.c4 .card p{font-size:36px}
+.c5 .card{padding:26px 22px}.c5 .card h3{font-size:40px}.c5 .card p{font-size:32px}
+.card .note{margin-top:18px;font:700 30px "Noto Sans TC",sans-serif;color:#B5462E}
+.card .num{width:64px;height:64px;border-radius:50%;background:var(--orange);color:#fff;font:900 38px/64px "Noto Sans TC";text-align:center;margin-bottom:14px}
+.arrows .card:not(:last-child)::after{content:"➜";position:absolute;right:-36px;top:46%;font-size:40px;color:var(--orange)}
+.rd1{background:#F1F8FE}
+.stat{border-radius:24px;padding:38px;background:linear-gradient(155deg,#fff,#f2f8fe);box-shadow:0 14px 32px rgba(30,58,110,.1);border:2px solid var(--line)}
+.stat .big{font:900 92px "Noto Sans TC";color:var(--blue);line-height:1.1;margin-bottom:10px}
+/* 步驟 */
+.steps{list-style:none;margin:auto 0;padding:0;display:flex;flex-direction:column;gap:34px}
+.steps li{display:flex;align-items:center;gap:30px;font-size:50px;font-weight:700;color:var(--navy);background:#fff;
+  border:3px solid var(--navy);padding:22px 34px;border-radius:18px 255px 18px 225px/225px 18px 255px 18px;box-shadow:8px 10px 0 var(--pale)}
+.steps .num{flex:none;width:80px;height:80px;border-radius:50%;background:var(--sky);color:#fff;font:900 46px/80px "Noto Sans TC";text-align:center}
+.qs li{font-weight:500;font-size:44px;color:var(--ink)}
+.qs .num:empty{display:none}
+.situation{font-size:52px;font-weight:900;color:var(--navy);margin:16px 0 40px;line-height:1.4}
+.situation .tag{display:inline-block;font-size:30px;background:var(--orange);color:#fff;border-radius:12px;padding:4px 18px;margin-right:18px;vertical-align:middle}
+/* 表格 */
+.tbl{margin:auto 0;border-collapse:separate;border-spacing:0;width:100%;font-size:40px;background:#fff;border:3px solid var(--navy);border-radius:20px;overflow:hidden}
+.tbl th{background:var(--navy);color:#fff;padding:22px;font-size:42px}
+.tbl td{padding:26px 22px;border-top:2px solid #e5eef7;text-align:center;height:110px}.tbl tbody tr:nth-child(even) td:not(:nth-child(3)){background:#f5f9fd}
+.tbl.compact td{height:auto;padding:10px 22px;font-size:36px;line-height:1.35}.tbl.compact th{padding:14px;font-size:44px}
+.tbl td:first-child{white-space:nowrap;font-weight:700;color:var(--navy)}
+.tbl th:nth-child(3),.tbl td:nth-child(3){background:#FFF8EC}
+.tbl th:nth-child(3){background:#B9741C}
+/* 圖片 */
+.shot{flex:1;display:flex;justify-content:center;align-items:center;min-height:0;gap:40px}
+.shot img{height:100%;width:auto;max-width:100%;object-fit:contain;border:3px solid var(--navy);border-radius:14px;box-shadow:12px 14px 0 var(--pale);background:#fff}
+.shot.two img{max-width:48%}
+.vid{flex:1;display:flex;justify-content:center;align-items:center;min-height:0}.vid video{height:100%;max-width:100%;border:3px solid var(--navy);border-radius:14px;box-shadow:12px 14px 0 var(--pale);background:#000}
+.shot.video iframe{height:100%;aspect-ratio:16/9;max-width:100%;border:3px solid var(--navy);border-radius:14px;box-shadow:12px 14px 0 var(--pale);background:#000}
+.shot.three{gap:24px}.shot.three img{width:calc((100% - 48px)/3);height:auto;max-height:100%;max-width:none}
+.prompt{position:relative;flex:1;min-height:0;margin:0}.prompt.code pre{margin:0;height:100%;max-height:none;overflow:auto;white-space:pre-wrap;background:#fff;border:3px solid var(--navy);border-radius:20px;padding:30px 40px;font:500 33px/1.55 'Noto Sans TC';color:var(--ink);box-shadow:12px 14px 0 var(--pale)}
+.prompt.code.small pre{font-size:23px;line-height:1.42;padding:20px 36px}
+.prompt.code.mid pre{font-size:27px;line-height:1.42;padding:22px 38px}
+.prompt.code.big pre{font-size:44px;line-height:1.6;padding:40px 150px 40px 50px}
+.steps.compact{gap:18px}.steps.compact li{font-size:38px;padding-top:14px;padding-bottom:14px}.steps.compact .num{width:64px;height:64px;font-size:36px;line-height:64px}
+.prompt.code .copy{font-size:26px;padding:8px 22px;right:20px;top:20px;border-radius:20px}
+.dls{display:flex;flex-wrap:wrap;gap:24px;margin-top:20px}
+.st{display:flex;gap:42px;flex:1;min-height:0;align-items:center}
+.st-img{flex:1.15;display:flex;justify-content:center;min-height:0;height:100%;align-items:center}
+.st-img img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 2px #1E3A6E) drop-shadow(12px 14px 0 #DCEEFB)}
+.st-text{flex:1}
+.st-text p{font-size:42px;line-height:1.6;margin:0 0 28px}
+.st-text p b{color:#B5462E}
+.st.small .st-img{flex:.55}.st.small .st-text p{font-size:29px;line-height:1.22;margin:0 0 3px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ill{mix-blend-mode:multiply}
+.illus{flex:1;min-height:0;display:flex;justify-content:center}
+.illus .ill{height:100%;max-width:100%;object-fit:contain;border-radius:24px}
+.ill.missing{display:flex;align-items:center;justify-content:center;border:4px dashed var(--line);color:var(--muted);font-size:40px;width:70%;border-radius:30px}
+.quote{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;margin:0;font:700 72px/1.55 "Noto Sans TC",sans-serif;color:var(--navy)}
+.quote.q2{flex:none;font-size:64px;margin:20px 0 40px}
+.rel{margin-top:26px;display:flex;align-items:center;gap:22px;font:900 44px 'Noto Sans TC';color:var(--navy)}.rel .tag{flex:none;font:700 28px 'Noto Sans TC';color:#fff;background:var(--sky);border-radius:30px;padding:8px 22px}
+.aiday{display:flex;gap:60px;align-items:center;flex:1}
+.aiday .bul{flex:1;font-size:44px}
+.qr{width:420px;border:3px solid var(--navy);border-radius:14px;background:#fff;padding:10px}
+.srcs{display:grid;grid-template-columns:1fr 1fr;gap:40px;font-size:31px;line-height:1.6}
+.srcs ul{margin:0;padding-left:1em}
+/* 新聞卡 */
+.newsgrid{flex:1;display:grid;gap:32px;align-content:center;grid-auto-rows:1fr;min-height:0;padding:12px 0 20px}
+.newsgrid.n2{grid-template-columns:1fr 1fr}.newsgrid.n1{grid-template-columns:1fr}.newsgrid.n3{grid-template-columns:repeat(3,1fr)}
+.news{position:relative;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:linear-gradient(150deg,#fff,#f6faff);border:2px solid var(--line);border-top:7px solid var(--blue);border-radius:22px;box-shadow:0 16px 36px rgba(30,58,110,.1);overflow:hidden}
+.news::before{content:"NEWS";position:absolute;right:-10px;top:-18px;font:900 120px "Noto Sans TC";color:#F1F6FC;z-index:0}
+.news>*{position:relative}
+.nw-text{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:30px 40px 70px;min-width:0}
+.nw-k{display:flex;gap:16px;align-items:center;font-size:28px;color:var(--muted)}
+.nw-k b{background:var(--navy);color:#fff;border-radius:999px;padding:6px 18px;font-size:25px}.nw-k span{font-weight:700;letter-spacing:.03em}
+.news h3{margin:28px 0 20px;font:900 50px/1.3 "Noto Sans TC";color:var(--navy)}
+.news p{margin:0;font-size:34px;line-height:1.55;color:#4b5d77}
+.nw-go{position:absolute;right:30px;bottom:20px;font:700 24px "Noto Sans TC";color:var(--blue)}
+.ni{flex:1;display:flex;gap:70px;align-items:center;min-height:0}
+.ni-img{height:100%;display:flex;align-items:center}
+.ni-img img{height:100%;max-height:640px;border:3px solid var(--navy);border-radius:16px;box-shadow:12px 14px 0 var(--pale);background:#fff}
+.ni-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px;flex:1}
+.ni-steps li{display:flex;gap:26px;align-items:center;background:#fff;border:3px solid var(--navy);border-radius:18px;padding:18px 28px;font-size:40px}
+.ni-steps b{flex:none;font:900 44px "Noto Sans TC";color:#fff;background:var(--orange);border-radius:12px;padding:4px 16px}
+.nw-shot{display:block;width:100%;height:42%;min-height:0;object-fit:cover;object-position:top;border-bottom:3px solid var(--navy)}
+.newsgrid.n1 .news.has-shot{flex-direction:row;align-items:stretch}
+.newsgrid.n1 .nw-shot{width:48%;height:auto;align-self:stretch;object-fit:cover;border-bottom:0;border-right:3px solid var(--navy)}
+.slide .inner .news img{cursor:pointer}
+/* 臺北／酷AI 底部標籤 */
+#tpbar{position:absolute;left:40px;bottom:22px;display:flex;align-items:center;gap:12px;font:700 22px "Noto Sans TC";color:var(--navy);pointer-events:none}
+#tpbar i{font-style:normal;background:var(--orange);color:#fff;border-radius:999px;padding:2px 14px;font-size:20px}
+@media print{#tpbar{display:none}}
+/* 導覽頁 */
+.navgrid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:44px;align-content:center}
+.navcard{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:14px;background:#fff;border:3px solid var(--navy);border-radius:28px;padding:40px 40px 80px;box-shadow:12px 14px 0 var(--pale);cursor:pointer;font-family:"Noto Sans TC";color:var(--ink);transition:transform .15s,box-shadow .15s}
+.navcard:hover{transform:translateY(-6px);box-shadow:12px 20px 0 #FFE2B8}
+.navcard::before{content:"";position:absolute;inset:0 auto 0 0;width:14px;background:var(--nav-color);border-radius:24px 0 0 24px}
+.navcard::after{position:absolute;right:34px;top:18px;font:900 100px/1 "Noto Sans TC";color:var(--nav-color);opacity:.18}
+.navcard:nth-child(1){--nav-color:#3B82C4}.navcard:nth-child(1)::after{content:"01"}
+.navcard:nth-child(2){--nav-color:#E59A32}.navcard:nth-child(2)::after{content:"02"}
+.navcard:nth-child(3){--nav-color:#328D83}.navcard:nth-child(3)::after{content:"03"}
+.navcard .nv-k{background:var(--nav-color)}
+.nv-k{font:900 30px "Noto Sans TC";color:#fff;background:var(--orange);border-radius:999px;padding:4px 22px}
+.nv-t{font:900 64px/1.15 "Noto Sans TC";color:var(--navy)}
+.nv-m{font:700 34px "Noto Sans TC";color:var(--blue)}
+.nv-d{font-size:32px;line-height:1.5}
+.nv-go{position:absolute;right:34px;bottom:26px;font:900 30px "Noto Sans TC";color:var(--orange)}
+#secchip{position:fixed;left:14px;top:12px;z-index:11;display:flex;gap:6px;padding:5px;background:rgba(255,255,255,.92);border:2px solid var(--navy);border-radius:22px;box-shadow:0 4px 14px rgba(30,58,110,.2)}
+#secchip button{font:700 15px "Noto Sans TC";border:none;background:#fff;color:var(--navy);border-radius:14px;padding:6px 12px;cursor:pointer}
+#secchip button.act{background:var(--orange);color:#fff}
+#secchip .g3btn{border-left:2px solid var(--line);border-radius:0 14px 14px 0}
+@media print{#secchip{display:none}}
+/* 酷AI 元素（取自 ailms.tp.edu.tw 首頁）：logo 膠囊、吉祥物插圖 */
+#tpbar{background:linear-gradient(90deg,#2BB5A8,#5CCFC2);border-radius:999px;padding:5px 16px 5px 12px;color:#fff}
+#tpbar img{height:22px;display:block}
+#tpbar i{background:#fff;color:#1E8F85}
+.kscene{position:absolute;right:44px;top:22px;height:150px;pointer-events:none;z-index:1;filter:drop-shadow(0 6px 10px rgba(30,58,110,.12))}
+.slide.t-cover .kscene,.slide.t-closing .kscene{top:auto;bottom:40px;right:60px;height:430px}
+.slide.t-divider .kscene{top:auto;bottom:28px;right:auto;left:560px;height:190px}
+.klogo{position:absolute;left:60px;top:48px;height:44px;padding:10px 18px;border-radius:14px;background:linear-gradient(90deg,#2BB5A8,#5CCFC2);z-index:2}
+/* 工具列：貼齊最上緣、平常半透明，滑鼠移上去才清楚；滑鼠 2 秒不動就收起 */
+#bar,#secchip{top:2px!important;opacity:.18;transition:opacity .25s,transform .25s;transform-origin:top center}
+#bar{transform:translateX(-50%) scale(.82)}#secchip{transform:scale(.82);transform-origin:top left}
+#bar:hover,#secchip:hover,body.uiwake #bar,body.uiwake #secchip{opacity:.95}
+body.uiidle #bar,body.uiidle #secchip{opacity:0;pointer-events:none}
+/* ── 三個模組三種視覺（共用酷AI／酷課雲元素：logo 膠囊、吉祥物、酷課雲標籤） */
+/* 模組一：航海（指引是一艘船）— 酷AI 青綠＋海浪 */
+.slide[data-sec=m1]{--navy:#0E4F5C;--ink:#16343b;--blue:#1E8F85;--sky:#5CCFC2;--pale:#D3F1EC;--orange:#F0A23B;--line:#B9E2DC;
+  background-color:#F5FCFB;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='60'><path d='M0 40 Q30 25 60 40 T120 40 T180 40 T240 40' fill='none' stroke='%23CDEFEA' stroke-width='3'/></svg>");background-size:240px 60px}
+.slide[data-sec=m1]::before{background:linear-gradient(90deg,#2BB5A8,#5CCFC2 55%,#F0A23B)}
+.slide[data-sec=m1] .slide .kicker,.slide[data-sec=m1] .kicker{background:#1E8F85}
+.slide[data-sec=m1] .tbl th:nth-child(3){background:#1E8F85}.slide[data-sec=m1] .tbl td:nth-child(3){background:#EFFAF8}
+/* 模組二：新聞編輯台（七大風險配新聞）— 報紙紙張＋朱紅 */
+.slide[data-sec=m2]{--navy:#2B2D42;--ink:#2B2D42;--blue:#C2410C;--sky:#F08A5D;--pale:#FDE3D8;--orange:#E85D3F;--line:#EBCFC3;
+  background-color:#FFFBF5;background-image:repeating-linear-gradient(0deg,transparent 0 33px,#F3E6D8 33px 34px)}
+.slide[data-sec=m2]::before{background:linear-gradient(90deg,#2B2D42 0 30%,#E85D3F 30% 70%,#2B2D42 70%)}
+.slide[data-sec=m2] .kicker{background:#2B2D42}.slide[data-sec=m2] .kicker::before{background:#E85D3F}
+.slide[data-sec=m2] .title span{background:linear-gradient(transparent 62%,#FDE3D8 62%)}
+.slide[data-sec=m2] .tbl th:nth-child(3){background:#E85D3F}.slide[data-sec=m2] .tbl td:nth-child(3){background:#FFF3EE}
+.slide[data-sec=m2] .card,.slide[data-sec=m2] .news,.slide[data-sec=m2] .steps li{border-radius:6px}
+/* 模組三：教室方格紙（AI 賦能教學）— 酷課雲藍紫＋方格 */
+.slide[data-sec=m3]{--navy:#33287A;--ink:#2a2550;--blue:#5B47B5;--sky:#8C7BE0;--pale:#E9E3FB;--orange:#F0A23B;--line:#D6CFF2;
+  background-color:#FBFAFF;background-image:linear-gradient(#EEEAFB 1px,transparent 1px),linear-gradient(90deg,#EEEAFB 1px,transparent 1px);background-size:40px 40px}
+.slide[data-sec=m3]::before{background:linear-gradient(90deg,#5B47B5,#8C7BE0 55%,#F0A23B)}
+.slide[data-sec=m3] .kicker{background:#5B47B5}
+.slide[data-sec=m3] .tbl th:nth-child(3){background:#7A5BD0}.slide[data-sec=m3] .tbl td:nth-child(3){background:#F5F2FE}
+/* 章節頁：大號模組編號浮水印＋「臺北酷課雲 × 酷AI」標籤 */
+.slide.t-divider .dvno{position:absolute;right:70px;top:-10px;font:900 360px/1 "Noto Sans TC";color:var(--pale);opacity:.9;z-index:0;pointer-events:none}
+.slide.t-divider .divider{position:relative;z-index:1}
+.cooc-chip{position:absolute;left:120px;top:60px;display:flex;align-items:center;gap:12px;font:900 24px "Noto Sans TC";color:#fff;background:linear-gradient(90deg,#2BB5A8,#5CCFC2);border-radius:999px;padding:8px 22px 8px 12px;z-index:2}
+.cooc-chip img{height:26px}
+.slide[data-sec=m2] .cooc-chip{background:linear-gradient(90deg,#2B2D42,#E85D3F)}
+.slide[data-sec=m3] .cooc-chip{background:linear-gradient(90deg,#5B47B5,#8C7BE0)}
+/* 右側配圖 */
+.wa{display:flex;gap:44px;height:100%;min-height:0}
+.wa-main{flex:1;min-width:0;display:flex;flex-direction:column}
+.wa-art{flex:0 0 36%;margin:0;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:0}
+.wa-art img{max-width:100%;max-height:78%;object-fit:contain;border-radius:16px;border:3px solid var(--navy);box-shadow:10px 12px 0 var(--pale);background:#fff}
+.wa-art img[src*="illus/"]{border:none;box-shadow:none;background:transparent;mix-blend-mode:multiply;max-height:88%}
+.wa-art figcaption{margin-top:14px;font:500 22px "Noto Sans TC";color:var(--muted)}
+.wa .cards.c4,.wa .cards.c5{grid-template-columns:repeat(2,1fr)}
+/* ── 衝擊轉場：整頁從大到正位＋模糊淡入；元素依序彈出 */
+@media (prefers-reduced-motion:no-preference){
+.slide.on .inner{animation:hit .55s cubic-bezier(.16,1.2,.3,1) both}
+@keyframes hit{0%{opacity:0;transform:scale(1.12) translateY(30px);filter:blur(10px)}60%{opacity:1;filter:blur(0)}100%{transform:none}}
+.slide.on .title span{display:inline-block;animation:wipe .6s .12s cubic-bezier(.2,.9,.2,1) both}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0);transform:translateX(-30px)}to{clip-path:inset(0 0 0 0);transform:none}}
+.slide.on .kicker{animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
+.slide.on :is(.cards>*,.newsgrid>*,.navgrid>*,.steps>li,.bul>li,.ni-steps>li,.tbl tbody tr,.st-text>p,.shot>img,.shot>figure,.wa-art,.ni-img,.illus){animation:pop .5s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes pop{0%{opacity:0;transform:translateY(40px) scale(.85) rotate(-1.5deg)}100%{opacity:1;transform:none}}
+.slide.on :is(.cards,.newsgrid,.navgrid,.steps,.bul,.ni-steps,.st-text,.shot,.tbl tbody)>*:nth-child(1){animation-delay:.18s}
+.slide.on :is(.cards,.newsgrid,.navgrid,.steps,.bul,.ni-steps,.st-text,.shot,.tbl tbody)>*:nth-child(2){animation-delay:.3s}
+.slide.on :is(.cards,.newsgrid,.navgrid,.steps,.bul,.ni-steps,.st-text,.shot,.tbl tbody)>*:nth-child(3){animation-delay:.42s}
+.slide.on :is(.cards,.newsgrid,.navgrid,.steps,.bul,.ni-steps,.st-text,.shot,.tbl tbody)>*:nth-child(4){animation-delay:.54s}
+.slide.on :is(.cards,.newsgrid,.navgrid,.steps,.bul,.ni-steps,.st-text,.shot,.tbl tbody)>*:nth-child(5){animation-delay:.66s}
+.slide.on :is(.cards,.newsgrid,.navgrid,.steps,.bul,.ni-steps,.st-text,.shot,.tbl tbody)>*:nth-child(n+6){animation-delay:.78s}
+.slide.on .wa-art{animation-delay:.5s}
+.slide.on .foot{animation:slam .5s .85s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes slam{0%{opacity:0;transform:scale(1.4)}100%{opacity:1;transform:none}}
+.slide.on .stat .big{animation:countup .8s .3s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes countup{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:none}}
+.slide.on.t-divider .dv-title,.slide.on .cover h1{animation:smash .7s .1s cubic-bezier(.2,1.5,.35,1) both}
+@keyframes smash{0%{opacity:0;transform:scale(2.2);letter-spacing:.3em;filter:blur(6px)}100%{opacity:1;transform:none;letter-spacing:normal;filter:none}}
+.slide.on .quote{animation:smash .8s .15s both}
+#deck::after{content:"";position:absolute;inset:0;pointer-events:none;background:#fff;opacity:0}
+#deck.flash::after{animation:flash2 .35s ease-out}
+@keyframes flash2{0%{opacity:.55}100%{opacity:0}}
+}
+/* 補充按鈕 */
+.supbtn{position:absolute;right:110px;bottom:24px;font:700 28px "Noto Sans TC";color:#fff;background:var(--blue);border:none;border-radius:30px;padding:10px 26px;cursor:pointer;box-shadow:0 4px 0 var(--navy)}
+.supbtn:hover{background:var(--navy)}
+/* 側欄（補充／講稿） */
+#panel{position:fixed;top:0;right:0;bottom:0;width:min(560px,92vw);background:#fff;box-shadow:-8px 0 30px rgba(30,58,110,.18);transform:translateX(102%);transition:transform .25s;z-index:20;display:flex;flex-direction:column}
+#panel.open{transform:none}
+#panel header{display:flex;gap:8px;padding:14px 16px;border-bottom:2px solid var(--pale);align-items:center}
+#panel header button{font:700 16px "Noto Sans TC";border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:20px;padding:6px 14px;cursor:pointer}
+#panel header button.act{background:var(--navy);color:#fff}
+#panel header .x{margin-left:auto;border:none;font-size:22px}
+#pbody{overflow:auto;padding:18px 20px 40px;font-size:17px;line-height:1.7}
+#pbody .notes{white-space:pre-wrap}
+.sup{border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:16px}
+.sup h4{margin:6px 0 8px;font-size:19px;color:var(--navy)}
+.sup ul,.sup ol{margin:0;padding-left:1.3em}
+.sup-k{display:flex;gap:8px;font-size:13px}
+.kind{background:var(--pale);color:var(--navy);border-radius:8px;padding:1px 8px;font-weight:700}
+.ev{border-radius:8px;padding:1px 8px;background:#eef1f5;color:var(--muted)}
+.ev-AI\ 生成待查證{background:#FFF1DC;color:#9A5B10}
+.rd{margin-top:10px}.rd summary{font-weight:700;color:var(--navy);cursor:pointer}.rd p{margin:8px 0;text-indent:0}
+.lm{margin-top:10px;background:#FFF6E6;border-radius:10px;padding:8px 12px}.lm ul{margin:4px 0 0}
+.tk{margin-top:10px;border-left:4px solid var(--sky);padding:4px 12px}.tk p{margin:4px 0}
+#panel{width:min(640px,94vw)!important}
+.cl{margin-top:10px;background:#F1F8FE;border-radius:10px;padding:8px 12px}
+.sup-src{margin:10px 0 0;font-size:14px;color:var(--muted)}
+.empty{color:var(--muted)}
+.code{position:relative;margin-top:10px}.code pre{white-space:pre-wrap;background:#F3F7FB;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;line-height:1.6;max-height:420px;overflow:auto}
+.copy{position:absolute;right:8px;top:8px;font:700 13px 'Noto Sans TC';background:var(--navy);color:#fff;border:none;border-radius:12px;padding:4px 10px;cursor:pointer}
+.dl.big{font-size:34px;padding:14px 30px;border-radius:30px;align-self:flex-start;margin-top:10px}
+.dl{display:inline-block;background:var(--orange);color:#fff;font-weight:700;border-radius:14px;padding:6px 14px;text-decoration:none}
+.shot.two figure{margin:0;flex:1;display:flex;flex-direction:column;align-items:center;height:100%;min-height:0}.shot.two figure img{max-width:100%;flex:1;min-height:0}.shot.two figcaption{font:900 40px 'Noto Sans TC';margin-top:14px}
+/* 控制列 */
+#bar{position:fixed;left:50%;top:10px;transform:translateX(-50%);display:flex;gap:8px;z-index:10;padding:6px;background:rgba(255,255,255,.9);border:2px solid var(--navy);border-radius:24px;box-shadow:0 4px 14px rgba(30,58,110,.25)}
+#bar button{font:700 16px "Noto Sans TC";border:none;background:var(--navy);color:#fff;border-radius:16px;padding:8px 14px;cursor:pointer}
+#bar button:hover{background:var(--orange)}
+@media (max-width:1600px){#bar{top:64px;max-width:calc(100vw - 20px);overflow-x:auto;justify-content:flex-start}#bar button{white-space:nowrap;flex:none}}
+@media (max-width:480px){#secchip{left:5px;right:5px;gap:2px;justify-content:space-around}#secchip button{font-size:13px;padding:7px 5px;white-space:nowrap}#bar{top:60px}}
+#prog{position:fixed;left:0;top:0;height:4px;background:var(--orange);z-index:10;transition:width .2s}
+/* 總覽 */
+#grid{position:fixed;inset:0;background:rgba(233,239,246,.97);z-index:30;overflow:auto;display:none;padding:24px}
+#grid.open{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;align-content:start}
+#grid button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:10px;text-align:left;cursor:pointer;font:500 14px "Noto Sans TC";color:var(--ink);min-height:70px}
+#grid button b{color:var(--blue);margin-right:6px}
+#grid button.has::after{content:" 📎";}
+
+/* LINE QR 頁 */
+.qrpage{flex:1;display:flex;align-items:center;justify-content:center;gap:90px}
+.qrpage img{height:640px;border:4px solid var(--navy);border-radius:24px;background:#fff;padding:14px;box-shadow:14px 16px 0 var(--pale)}
+.qrpage .bul{flex:none;font-size:52px}
+/* 計時器面板 */
+#timerPanel{position:fixed;left:50%;top:64px;transform:translateX(-50%);z-index:35;background:#fff;border:2px solid var(--navy);border-radius:20px;box-shadow:0 10px 30px rgba(30,58,110,.25);padding:16px 18px;display:none;font-family:'Noto Sans TC';width:min(440px,94vw)}
+#timerPanel.open{display:block}
+#timerPanel h5{margin:0 0 10px;font-size:18px;color:var(--navy)}
+#timerPanel .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+#timerPanel input{width:70px;font:700 22px 'Noto Sans TC';text-align:center;border:2px solid var(--line);border-radius:10px;padding:4px}
+#timerPanel button{font:700 15px 'Noto Sans TC';border:none;background:var(--navy);color:#fff;border-radius:14px;padding:7px 12px;cursor:pointer}
+#timerPanel button.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+#timerPanel button.go{background:var(--orange)}
+#timerPanel label{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:4px}
+/* 浮動倒數顯示（換頁不影響） */
+#timerBadge{position:fixed;right:18px;top:12px;z-index:36;display:none;align-items:center;gap:10px;background:#fff;border:3px solid var(--navy);border-radius:22px;padding:6px 16px;font:900 34px 'Noto Sans TC';color:var(--navy);box-shadow:0 6px 18px rgba(30,58,110,.25);cursor:pointer;font-variant-numeric:tabular-nums}
+#timerBadge.show{display:flex}
+#timerBadge.paused{opacity:.6}
+#timerBadge.warn{background:#FFF1DC;border-color:var(--orange);color:#B5462E}
+#timerBadge.danger{background:#E5484D;border-color:#B42318;color:#fff;animation:pulse 1s infinite}
+#timerBadge .bar{width:80px;height:8px;background:var(--pale);border-radius:4px;overflow:hidden}
+#timerBadge .bar i{display:block;height:100%;background:var(--sky)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+#edgeGlow{position:fixed;inset:0;pointer-events:none;z-index:34;box-shadow:inset 0 0 0 0 rgba(229,72,77,0);transition:box-shadow .3s}
+#edgeGlow.on{animation:glow 1s infinite}
+@keyframes glow{0%,100%{box-shadow:inset 0 0 30px 6px rgba(229,72,77,.35)}50%{box-shadow:inset 0 0 80px 22px rgba(229,72,77,.7)}}
+#timesUp{position:fixed;inset:0;z-index:45;display:none;align-items:center;justify-content:center;background:rgba(229,72,77,.88);font:900 min(18vw,220px) 'Noto Sans TC';color:#fff;cursor:pointer;animation:flash .6s 5}
+#timesUp.open{display:flex}
+@keyframes flash{0%,100%{opacity:1}50%{opacity:.55}}
+@media print{#timerPanel,#timerBadge,#edgeGlow,#timesUp{display:none!important}#bar,#panel,#prog,.supbtn{display:none}}
+.slide .inner img:not([src*="cover_bg"]){cursor:zoom-in}
+#zoom{position:fixed;inset:0;z-index:9999;background:rgba(10,20,45,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+#zoom.on{display:flex}
+#zoom img{max-width:96vw;max-height:96vh;object-fit:contain;border-radius:10px;background:#fff;box-shadow:0 10px 60px rgba(0,0,0,.5)}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="deck">
+<section class="slide t-cover" id="p1" data-label="1" data-sec="home"><div class="inner"><div class="cover"><div class="cover-text">
+<div class="org">B3 數位教學指引儲備講師培訓工作坊｜試講</div>
+<h1>把指引帶進<br><mark>臺北教室</mark></h1>
+<div class="hand">少講理論，多看新聞與工具</div>
+<div class="meta">2026.11.21（六）　國立臺中教育大學</div>
+<div class="who"><span>臺北市數位學習中心 <b>周凡淇</b></span></div>
+</div></div></div><div class="pno">1</div></section>
+<section class="slide t-nav" id="p2" data-label="2" data-sec="home"><div class="inner"><div class="kicker">導覽</div><h2 class="title"><span>今天的三個模組</span></h2><div class="navgrid"><button class="navcard" data-go="m1"><span class="nv-k">模組一</span><span class="nv-t">理解指引</span><span class="nv-m">30 分</span><span class="nv-d">指引特色、四個趨勢、AI 素養框架</span><span class="nv-go">進入 ➜</span></button><button class="navcard" data-go="m2"><span class="nv-k">模組二</span><span class="nv-t">AI 時代人的角色</span><span class="nv-m">60 分</span><span class="nv-d">七大風險配新聞、負責任使用七原則、AI Agent</span><span class="nv-go">進入 ➜</span></button><button class="navcard" data-go="m3"><span class="nv-k">模組三</span><span class="nv-t">AI 賦能教學</span><span class="nv-m">80 分</span><span class="nv-d">AIPACK、教育型 AI、教案解構與小組共學</span><span class="nv-go">進入 ➜</span></button></div><p class="foot">點卡片直接進入；任何一頁按 H 回到這裡，按 1／2／3 跳到各模組</p></div><div class="pno">2</div></section>
+<section class="slide t-shotText" id="p3" data-label="3" data-sec="home"><div class="inner"><div class="kicker">先看一張圖</div><h2 class="title"><span>教育部推薦名單上，有臺北</span></h2><div class="st"><div class="st-img"><img src="assets/shots/a2_list.png" alt=""></div><div class="st-text"><p>指引 p.67：優先選用<b>教育部建置或推薦</b>的數位學習平臺</p><p>A2 數位學習平臺推薦名單：<b>臺北酷課雲</b>（115.10.16 起）</p><p>和因材網、酷英並列</p><p><b>酷AI</b> 就是酷課雲裡的 AI 學習系統</p></div></div><p class="src">資料來源｜pads.moe.edu.tw/teacher_list.php（2026-11-21 截圖）</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">3</div></section>
+<section class="slide t-stats" id="p4" data-label="4" data-sec="home"><div class="inner"><div class="kicker">臺北的教育型 AI</div><h2 class="title"><span>酷AI：已經在教室裡的 AI</span></h2><div class="cards c3"><div class="card stat"><div class="big">77 萬</div><h3>人次使用</h3><p>2026-01 跨縣市記者會公布的累計數字</p></div><div class="card stat"><div class="big">3 縣市</div><h3>簽 MOU 共享</h3><p>連江、雲林、澎湖</p></div><div class="card stat"><div class="big">253 校</div><h3>到校研習</h3><p>339 場、17,844 人次（2023-10～2026-04）</p></div></div></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">4</div></section>
+<section class="slide t-shotText" id="p5" data-label="5" data-sec="home"><div class="inner"><div class="kicker">貫穿整天的四個問題</div><h2 class="title"><span>每看到一個 AI 應用，都問</span></h2><div class="st"><div class="st-img"><img src="assets/shots/cp_p14_four_questions.jpg" alt=""></div><div class="st-text"><p>① 對準什麼<b>學習目標</b>？</p><p>② 學生還保有<b>思考、判斷與修正</b>嗎？</p><p>③ 老師怎麼設定<b>任務邊界</b>與檢核？</p><p>④ 怎麼避免<b>隱私外洩、錯假訊息、認知卸載</b>？</p></div></div><p class="foot">避免過度展示工具功能，聚焦教學判斷</p></div><div class="pno">5</div></section>
+<section class="slide t-divider" id="p6" data-label="6" data-sec="m1"><div class="inner"><div class="divider"><div class="dv-text"><div class="kicker big">模組一｜30 分</div>
+<h2 class="dv-title">理解指引</h2><div class="dv-sub">邁向以人為中心的 AI 賦能教學</div></div>
+<div class="dv-ill"><img class="ill" style="height:auto;border-radius:24px;box-shadow:0 12px 40px rgba(30,58,110,.18)" src="assets/shots/guide_m1_arch.png" alt=""></div></div></div><div class="pno">6</div></section>
+<section class="slide t-steps" id="p7" data-label="7" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜暖身 1 分鐘</div><h2 class="title"><span>先跟旁邊的人說說話</span></h2><ol class="steps"><li><span class="num">1</span><span>站起來，三次深呼吸</span></li><li><span class="num">2</span><span>微笑看著夥伴的眼睛，介紹自己</span></li><li><span class="num">3</span><span>說說最近一次用 AI 的驚豔（或驚嚇）</span></li></ol><p class="foot">人與人的真實連結，是一切科技應用的基礎</p></div><figure class="wa-art"><img src="assets/illus/warmup.jpg" alt=""></figure></div></div><div class="pno">7</div></section>
+<section class="slide t-table" id="p8" data-label="8" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜發展歷程</div><h2 class="title"><span>指引一路怎麼長大的</span></h2><table class="tbl"><thead><tr><th>版本</th><th>時間</th><th>重點</th></tr></thead><tbody><tr><td>1.0</td><td>111 年 9 月</td><td>配合生生用平板，導讀數位學習的趨勢與概念</td></tr><tr><td>2.0</td><td>112 年 10 月</td><td>納入生成式 AI 在備課、教學、評量的使用時機</td></tr><tr><td>3.0</td><td>2024 年</td><td>補充數位工具與生成式 AI 新進展、AI 輔助教學原則</td></tr><tr><td>115 年版</td><td>2026 年 9 月</td><td>導入 AI 代理人、對準 AI 素養框架</td></tr></tbody></table><p class="foot">為什麼不叫 4.0？校長版、家長版只到 2.0，為了同步，統一用年份</p></div><figure class="wa-art"><img src="assets/shots/gb_m1-06.png" alt=""><figcaption>公版模組一 p.6</figcaption></figure></div></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">8</div></section>
+<section class="slide t-cards" id="p9" data-label="9" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜115 年一次五份</div><h2 class="title"><span>不只老師有指引</span></h2><div class="cards c3"><div class="card"><h3>教師</h3><p>數位與 AI 教學指引</p></div><div class="card"><h3>校長</h3><p>數位與 AI 領導指引</p></div><div class="card"><h3>家長</h3><p>數位與 AI 學習知能指引</p></div><div class="card"><h3>學生</h3><p>中小學學生 AI 學習手冊</p></div><div class="card"><h3>框架</h3><p>教師與學生 AI 素養框架</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m1-09.png" alt=""><figcaption>公版模組一 p.7</figcaption></figure></div></div><div class="pno">9</div></section>
+<section class="slide t-bullets" id="p10" data-label="10" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜六個特色</div><h2 class="title"><span>這一版新在哪裡</span></h2><ul class="bul"><li class="hl">導入人工智慧代理人（AI Agent）</li><li class="">對準 AI 素養框架與 AI 人才圖像</li><li class="hl">強調以人為中心的思維</li><li class="">AI 從工具轉為學習設計的協作夥伴</li><li class="">提升 AI 賦能教學</li><li class="">以 AI 促進教師專業發展</li></ul></div><figure class="wa-art"><img src="assets/illus/six_features.jpg" alt=""></figure></div></div><div class="pno">10</div></section>
+<section class="slide t-cards" id="p11" data-label="11" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜指引的架構</div><h2 class="title"><span>一艘船：風帆、船身、龍骨</span></h2><div class="cards c3"><div class="card"><h3>風帆</h3><p>第一章：數位學習趨勢與願景<br>航行的動力與方向</p></div><div class="card"><h3>船身</h3><p>第二至七章：核心內容、策略、案例與教學實踐</p></div><div class="card"><h3>龍骨</h3><p>以人為中心的數位 AI 素養教育<br>讓整艘船不偏航</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m1-12.png" alt=""><figcaption>公版模組一：以導航與 AI 素養人才教育為意象</figcaption></figure></div></div><div class="pno">11</div></section>
+<section class="slide t-steps" id="p12" data-label="12" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜讀書活動 6 分鐘</div><h2 class="title"><span>與指引心中交談</span></h2><ol class="steps"><li><span class="num">1</span><span>看目錄，挑一章你有興趣的</span></li><li><span class="num">2</span><span>先讀章首的「重點先看」（例：第一章 p.12）</span></li><li><span class="num">3</span><span>再讀章末的「問題啟思」（例：第一章 p.21）</span></li><li><span class="num">4</span><span>有剩時間再讀內文，讀多少算多少</span></li></ol><p class="foot">請 1～2 位老師分享：你讀到什麼？</p></div><figure class="wa-art"><img src="assets/illus/read_guide.jpg" alt=""></figure></div></div><div class="pno">12</div></section>
+<section class="slide t-cards" id="p13" data-label="13" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜四個趨勢</div><h2 class="title"><span>世界在往哪裡走</span></h2><div class="cards c4"><div class="card"><h3>① 一生一載具</h3><p>日本 GIGA、韓國 AI 數位教科書<br>臺灣 2026–2029 逐年落實一生一機</p></div><div class="card"><h3>② AI 學習平臺</h3><p>因材網精準診斷、e度<br>臺北：酷AI</p></div><div class="card"><h3>③ 素養內涵</h3><p>接軌 2029 PISA「媒體與人工智慧素養」</p></div><div class="card"><h3>④ 學科融合</h3><p>有意的教學摩擦、蘇格拉底式 AI<br>臺灣在地實踐：酷英 CoolE Bot</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m1-15.png" alt=""><figcaption>公版模組一 p.15–16</figcaption></figure></div></div><div class="pno">13</div></section>
+<section class="slide t-shotText" id="p14" data-label="14" data-sec="m1"><div class="inner"><div class="kicker">模組一｜四個趨勢</div><h2 class="title"><span>趨勢四：臺灣在地實踐</span></h2><div class="st"><div class="st-img"><img src="assets/shots/guide_trend4.png" alt=""></div><div class="st-text"><p>公版寫：<b>酷英網導入 CoolE Bot</b>，實現適性化對話</p><p>酷英是臺北市建置、全國使用的英語平臺</p><p>臺北還有<b>酷AI</b>：各學科、個人化學習路徑</p><p>講趨勢時，舉老師<b>看得到、明天就能用</b>的例子</p></div></div><p class="src">資料來源｜模組一公版簡報 p.16</p></div><div class="pno">14</div></section>
+<section class="slide t-shot2" id="p15" data-label="15" data-sec="m1"><div class="inner"><div class="kicker">模組一｜臺北的例子</div><h2 class="title"><span>酷AI：從統一進度，走向個人化路徑</span></h2><div class="shot two"><img src="assets/shots/kuai_06.png" alt=""><img src="assets/shots/kuai_07.png" alt=""></div><p class="src">資料來源｜《2026 酷AI 系統新增功能介紹》（2026-01-26 記者會）</p></div><div class="pno">15</div></section>
+<section class="slide t-cards" id="p16" data-label="16" data-sec="m1"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組一｜AI 人才方舟計畫 2026–2029</div><h2 class="title"><span>六個子計畫</span></h2><div class="cards c3"><div class="card"><h3>一</h3><p>數位內容充實</p></div><div class="card"><h3>二</h3><p>數位教學支持與輔導</p></div><div class="card"><h3>三</h3><p>教育大數據分析</p></div><div class="card"><h3>四</h3><p>新一代 AI 學習系統研發</p></div><div class="card"><h3>五</h3><p>科技領域 AI 素養強化</p></div><div class="card"><h3>六</h3><p>智慧教育師培聯盟</p></div></div><p class="foot">兩個目標：教師應用 AI 教學的專業知能、學生 AI 素養與學習成效</p></div><figure class="wa-art"><img src="assets/shots/gb_m1-08.png" alt=""><figcaption>公版模組一 p.8</figcaption></figure></div></div><div class="pno">16</div></section>
+<section class="slide t-table" id="p17" data-label="17" data-sec="m1"><div class="inner"><div class="kicker">模組一｜教師 AI 素養框架 p.33–37</div><h2 class="title"><span>老師：四個面向 × 三個層次</span></h2><table class="tbl compact"><thead><tr><th>層次</th><th>AI 倫理</th><th>AI 基礎與技術</th><th>AI 賦能教學</th><th>AI 促進專業發展</th></tr></thead><tbody><tr><td>取得理解</td><td>掌握 AI 技術與倫理</td><td>培養 AI 的基礎知識</td><td>善用 AI 輔助學科教學</td><td>覺知 AI 時代的專業角色、實踐終身學習</td></tr><tr><td>深化應用</td><td>內化 AI 倫理教學責任</td><td>應用 AI 的技能</td><td>整合 AI 與教學法</td><td>應用 AI 與數據分析驅動專業發展</td></tr><tr><td>創造轉型</td><td>形塑以 AI 促進創新的倫理</td><td>使用 AI 創新</td><td>促進 AI 教學轉型創新</td><td>結合 AI 共創教師專業發展</td></tr></tbody></table><p class="foot">中心是以人為本：AI 是輔助工具，決策結果由人負最終責任</p></div><div class="pno">17</div></section>
+<section class="slide t-table" id="p18" data-label="18" data-sec="m1"><div class="inner"><div class="kicker">模組一｜學生 AI 素養框架 p.47</div><h2 class="title"><span>學生：前兩項一樣，後兩項不同</span></h2><table class="tbl compact"><thead><tr><th>層次</th><th>AI 倫理</th><th>AI 基礎與技術</th><th>AI 賦能學習</th><th>AI 系統設計</th></tr></thead><tbody><tr><td>取得理解</td><td>理解 AI 倫理困境</td><td>認知 AI 基礎以參與互動</td><td>理解 AI 在學習的角色與界線</td><td>理解 AI 系統設計原理</td></tr><tr><td>深化應用</td><td>熟練正用 AI</td><td>管理 AI 工具於多元情境</td><td>應用 AI 提升領域學習</td><td>應用設計思維於 AI 系統開發</td></tr><tr><td>創造轉型</td><td>兼具 AI 技術與倫理</td><td>創造以人為中心的 AI 專案</td><td>開創人機協作賦能自主學習</td><td>創造與優化 AI 系統</td></tr></tbody></table></div><div class="pno">18</div></section>
+<section class="slide t-bullets" id="p19" data-label="19" data-sec="m1"><div class="inner"><div class="kicker">模組一｜活動</div><h2 class="title"><span>玩一下：你在哪個層次？</span></h2><ul class="bul"><li class="">AI方舟遊戲：依情境選出對應的素養面向（取代原本的 Wordwall）</li><li class="">教師 AI 數位素養自我檢視（指引 p.33–38）</li><li class="">畫記不熟悉的詞句：哪些內涵我們還不懂？</li></ul><a class="link" href="https://ai-ark-workshop.wei5903.chatgpt.site/" target="_blank" rel="noopener">https://ai-ark-workshop.wei5903.chatgpt.site/</a></div><div class="pno">19</div></section>
+<section class="slide t-quote" id="p20" data-label="20" data-sec="m1"><div class="inner"><div class="kicker">模組一｜問思與討論</div><blockquote class="quote">生成式 AI 的價值，<br>不在幫教師省下多少事，<br>而在能不能增強教師的專業判斷。</blockquote><p class="foot">引自 OECD Digital Education Outlook 2026（公版模組一 p.26）</p></div><div class="pno">20</div></section>
+<section class="slide t-divider" id="p21" data-label="21" data-sec="m2"><div class="inner"><div class="divider"><div class="dv-text"><div class="kicker big">模組二｜60 分</div>
+<h2 class="dv-title">七大風險</h2><div class="dv-sub">用新聞看，不用背</div></div>
+<div class="dv-ill"><img class="ill" style="height:auto;border-radius:24px;box-shadow:0 12px 40px rgba(30,58,110,.18)" src="assets/shots/cp_image8.jpg" alt=""></div></div></div><div class="pno">21</div></section>
+<section class="slide t-cards" id="p22" data-label="22" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜活動概覽</div><h2 class="title"><span>三段：覺察、負責、進階</span></h2><div class="cards c3"><div class="card"><h3>覺察思辨 35 分</h3><p>七大風險與教學實務<br>小組設計教學情境</p></div><div class="card"><h3>負責使用 15 分</h3><p>負責任使用生成式 AI 七原則</p><div class=note>《人工智慧基本法》</div></div><div class="card"><h3>進階應用 10 分</h3><p>由 AI Ask 到 AI Agent 示範</p></div></div><p class="foot">Human in the Loop：技術到不到位不是重點，人能理解、評估、負責任地回應才是</p></div><figure class="wa-art"><img src="assets/shots/gb_m2-03.png" alt=""><figcaption>公版模組二 p.2</figcaption></figure></div></div><div class="pno">22</div></section>
+<section class="slide t-table" id="p23" data-label="23" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜七大風險總覽</div><h2 class="title"><span>七個風險、七組口訣</span></h2><table class="tbl compact"><thead><tr><th>風險</th><th>一句話</th><th>口訣</th></tr></thead><tbody><tr><td>錯假訊息吸收</td><td>把看似合理的生成內容當成真相</td><td>STEP</td></tr><tr><td>認知卸載</td><td>把理解、練習與記憶交給 AI</td><td>THINK</td></tr><tr><td>AI 幻覺與偏見</td><td>模型會編造，也會反映社會偏見</td><td>FACT</td></tr><tr><td>演算法同溫層</td><td>推薦讓視野越來越窄</td><td>OPEN</td></tr><tr><td>隱私與資訊安全</td><td>不自覺輸入自己或他人的個資</td><td>SAFE</td></tr><tr><td>教育工具化</td><td>只追求效率與答案，忽略學習歷程</td><td>HUMAN</td></tr><tr><td>情感依附錯位</td><td>把設計出來的陪伴誤認為真實關係</td><td>CARE</td></tr></tbody></table><p class="foot">教學焦點不是禁止 AI，而是讓學生看見風險、說出判斷</p></div><figure class="wa-art"><img src="assets/illus/seven_risks.jpg" alt=""></figure></div></div><div class="pno">23</div></section>
+<section class="slide t-compare" id="p24" data-label="24" data-sec="m2"><div class="inner"><div class="kicker">模組二｜① 錯假訊息 STEP</div><h2 class="title"><span>網路流傳的門診告示，是真的嗎？</span></h2><div class="shot two"><figure><img src="assets/shots/cp_image8.jpg" alt=""><figcaption>臺灣版：GPT／Google／Threads</figcaption></figure><figure><img src="assets/shots/cp_image9.jpg" alt=""><figcaption>豆包版：豆包／千問、元寶／百度</figcaption></figure></div><p class="foot">同一個模板換字 → 比較像梗圖；查不到任何醫院發過這張告示</p><p class="src">資料來源｜網路流傳圖片（2026-10 微博熱搜）</p></div><div class="pno">24</div></section>
+<section class="slide t-shotText" id="p25" data-label="25" data-sec="m2"><div class="inner"><div class="kicker">模組二｜① 錯假訊息 STEP</div><h2 class="title"><span>假的告示，真的焦慮</span></h2><div class="st"><div class="st-img"><img src="assets/shots/cp_image10.jpg" alt=""></div><div class="st-text"><p>2026-10-08 登上微博熱搜第一；查證後<b>不是任何醫院的公告</b></p><p>醫師推文：「一上午看了 30 個號，25 個病人是帶著 AI 結果來看病的。」</p><p>說出來：「我不採信，因為<b>查不到任何醫院的官方公告</b>。」</p></div></div><p class="src">資料來源｜搜狐、什麼值得買，2026-10-08</p></div><div class="pno">25</div></section>
+<section class="slide t-newsimg" id="p26" data-label="26" data-sec="m2"><div class="inner"><div class="kicker">模組二｜① 錯假訊息 STEP</div><h2 class="title"><span>這張照片，你會轉傳嗎？</span></h2><div class="ni"><div class="ni-img"><img src="assets/shots/pope_puffer_ai.jpg" alt=""></div><ol class="ni-steps"><li><b>S 看來源</b><span>誰發的？原始出處在哪？</span></li><li><b>T 看時間</b><span>什麼時候的事？</span></li><li><b>E 看證據</b><span>有其他媒體、官方證實嗎？</span></li><li><b>P 看觀點</b><span>不同來源怎麼說？</span></li></ol></div><p class="foot">答案：AI 生成（Midjourney，2023-03），當時在網路瘋傳</p><p class="src">資料來源｜圖：Wikimedia Commons〈Pope Francis in puffy winter jacket〉，Public domain</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">26</div></section>
+<section class="slide t-shotText" id="p27" data-label="27" data-sec="m2"><div class="inner"><div class="kicker">模組二｜① 反過來：看起來假，其實是真的</div><h2 class="title"><span>這張呢？</span></h2><div class="st"><div class="st-img"><img src="assets/shots/fire_rainbow.jpg" alt=""></div><div class="st-text"><p>顏色鮮豔、和周圍景色很不搭 → 很多人直覺說「AI 做的」</p><p>答案：<b>真的</b>。這是「火彩」（環地平弧），一種大氣光學現象</p><p>STEP 不是用來「全部懷疑」，是用來<b>查證</b></p><p>工具：以圖搜圖，找原始出處</p></div></div><p class="src">資料來源｜美國海岸防衛隊 2013-11-06 攝（Wikimedia Commons，Public domain）</p></div><div class="pno">27</div></section>
+<section class="slide t-news" id="p28" data-label="28" data-sec="m2"><div class="inner"><div class="kicker">模組二｜① 錯假訊息 STEP</div><h2 class="title"><span>5 秒，就能偷走你的聲音</span></h2><div class="newsgrid n2"><a class="news has-shot" href="https://technews.tw/2026/06/11/ai-voice-cloning-scams/" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_voice.png" alt=""><div class="nw-text"><div class="nw-k"><b>TechNews 科技新報</b><span>2026-06-11</span></div><h3>5 秒音檔就能「偷走你的聲音」</h3><p>美中接連爆發 AI 變聲詐騙，以「親友出事」開場，催你在查證前匯款</p><span class="nw-go">看原文 ↗</span></div></a><a class="news" href="https://www.bnext.com.tw/article/89781/2026-ai-scam-trends-security" target="_blank" rel="noopener"><div class="nw-text"><div class="nw-k"><b>刑事警察局預防科</b><span>2026</span></div><h3>深偽能即時模仿親屬的聲音與影像</h3><p>生成式 AI 把詐騙改造成近乎全自動的攻擊</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">課堂最簡單的一招：跟家人約好一個「暗號」</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">28</div></section>
+<section class="slide t-flow5" id="p29" data-label="29" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜數位識讀的教學設計</div><h2 class="title"><span>情境帶領 → 實作 → 反思與規範</span></h2><div class="cards c5 arrows flow5"><div class="card"><h3>真實情境</h3><p>老師設計真實情境</p></div><div class="card"><h3>方法教學</h3><p>說明應對方法</p></div><div class="card"><h3>實作練習</h3><p>讓學生練習</p></div><div class="card"><h3>反思覺察</h3><p>回顧歷程、表達觀點</p></div><div class="card"><h3>教師導學</h3><p>一起建立規範</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m2-09.png" alt=""><figcaption>公版模組二 p.8</figcaption></figure></div></div><div class="pno">29</div></section>
+<section class="slide t-cards" id="p30" data-label="30" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜不同教育階段</div><h2 class="title"><span>同一個風險，不同年段怎麼教</span></h2><div class="cards c3"><div class="card"><h3>國小</h3><p>從生活經驗開始：辨識假圖片、誇大標題、可疑轉傳<br>先想一想、再問 AI；AI 是工具，不是唯一朋友</p></div><div class="card"><h3>國中</h3><p>用自己的話說明 AI 的回答<br>分析假新聞、社群貼文、AI 圖片、不同人的推薦頁</p></div><div class="card"><h3>高中</h3><p>公共議題、專題探究、工具檢核<br>討論 AI 陪伴、心理健康與科技倫理</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m2-10.png" alt=""><figcaption>公版模組二 p.9</figcaption></figure></div></div><div class="pno">30</div></section>
+<section class="slide t-illus" id="p31" data-label="31" data-sec="m2"><div class="inner"><div class="kicker">模組二｜② 認知卸載 THINK</div><h2 class="title"><span>卸載記憶可以，卸載思考要小心</span></h2><div class="illus"><img class="ill" src="assets/shots/cp_p09_offload.jpg" alt=""></div></div><div class="pno">31</div></section>
+<section class="slide t-news" id="p32" data-label="32" data-sec="m2"><div class="inner"><div class="kicker">模組二｜② 認知卸載 THINK</div><h2 class="title"><span>用 AI 寫完，自己卻記不得</span></h2><div class="newsgrid n1"><a class="news has-shot" href="https://www.media.mit.edu/publications/your-brain-on-chatgpt/" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_mit.png" alt=""><div class="nw-text"><div class="nw-k"><b>MIT Media Lab</b><span>2025-06</span></div><h3>Your Brain on ChatGPT</h3><p>54 人寫作實驗：用 AI 組的腦部連結最弱，也最難引用自己剛寫的句子</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">T 先試試 → H 只要提示 → I 自己說明 → N 換題再做 → K 確認自己懂</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">32</div></section>
+<section class="slide t-flow5" id="p33" data-label="33" data-sec="m2"><div class="inner"><div class="kicker">模組二｜② THINK 怎麼教</div><h2 class="title"><span>先自己想，再請 AI 幫忙</span></h2><div class="cards c5 arrows flow5"><div class="card"><h3>T 先試試</h3><p>用 AI 前自己先嘗試</p></div><div class="card"><h3>H 只要提示</h3><p>要提示與方向，不要完整答案</p></div><div class="card"><h3>I 自己詮釋</h3><p>用自己的話說明 AI 的意思</p></div><div class="card"><h3>N 換題再做</h3><p>不靠 AI 再做一題類似題</p></div><div class="card"><h3>K 確認自己懂</h3><p>回顧學到什麼、哪裡還不懂</p></div></div><p class="foot">評量怎麼改？加口試、現場寫作，看得到過程</p></div><div class="pno">33</div></section>
+<section class="slide t-shotText" id="p34" data-label="34" data-sec="m2"><div class="inner"><div class="kicker">模組二｜③ AI 幻覺 FACT</div><h2 class="title"><span>Google AI：起司會滑掉？加點膠水</span></h2><div class="st"><div class="st-img"><img src="assets/shots/news_glue.png" alt=""></div><div class="st-text"><p>2024-05 Google 搜尋的「AI 摘要」上線就出包</p><p>問「起司從披薩滑掉怎麼辦」→ 建議在醬料加<b>無毒膠水</b></p><p>問「每天該吃幾顆石頭」→ 「地質學家建議每天至少一顆小石頭」</p><p>來源：11 年前 Reddit 的<b>玩笑留言</b>、諷刺網站 The Onion</p></div></div><p class="foot">AI 分不出玩笑和事實：請學生找出這個答案「可疑」在哪</p><p class="src">資料來源｜UNSW Newsroom 2024-05-28（截圖）</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">34</div></section>
+<section class="slide t-shot2" id="p35" data-label="35" data-sec="m2"><div class="inner"><div class="kicker">模組二｜③ AI 幻覺 FACT</div><h2 class="title"><span>法律界：AI 寫的，不收</span></h2><div class="shot two"><img src="assets/shots/cp_image12.jpg" alt=""><img src="assets/shots/cp_image13.jpg" alt=""></div><p class="src">資料來源｜左：Yahoo 新聞轉載周刊王 CTWANT〈司法院警告全國法官勿用 AI 生成判決〉；右：網路流傳照片</p></div><div class="pno">35</div></section>
+<section class="slide t-news" id="p36" data-label="36" data-sec="m2"><div class="inner"><div class="kicker">模組二｜③ AI 幻覺與偏見 FACT</div><h2 class="title"><span>律師相信 AI，罰 5,000 美元</span></h2><div class="newsgrid n2"><a class="news has-shot" href="https://finance.technews.tw/2026/09/29/lawyer-cites-fake-witnesses-in-murder-case-and-blames-chatgpt/" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_lawyer.png" alt=""><div class="nw-text"><div class="nw-k"><b>TechNews 科技新報</b><span>2026-09-29</span></div><h3>律師用 ChatGPT，書狀出現不存在的警察證人</h3><p>美國新墨西哥州謀殺案上訴，律師被裁藐視法庭、罰 5,000 美元並移送懲戒</p><span class="nw-go">看原文 ↗</span></div></a><a class="news" href="https://technews.tw/?p=1465513" target="_blank" rel="noopener"><div class="nw-text"><div class="nw-k"><b>TechNews 科技新報</b><span>2025</span></div><h3>AI 假判例全球追查</h3><p>ChatGPT 問世以來，全球已記錄超過 500 起法律文件引用 AI 虛構內容</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">F 找出可疑 → A 追問依據 → C 查證比對 → T 修正轉化</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">36</div></section>
+<section class="slide t-news" id="p37" data-label="37" data-sec="m2"><div class="inner"><div class="kicker">模組二｜④ 演算法同溫層 OPEN</div><h2 class="title"><span>5 天，推薦的厭女內容從 13% 變 56%</span></h2><div class="newsgrid n1"><a class="news has-shot" href="https://www.taiwannews.com.tw/zh/news/5091815" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_tiktok.png" alt=""><div class="nw-text"><div class="nw-k"><b>台灣英文新聞（轉述衛報）</b><span>2024-02</span></div><h3>研究：TikTok 演算法迅速放大極端厭女內容</h3><p>英國倫敦大學與肯特大學監測 5 天，推薦中的厭女內容從 13% 升到 56%，影響校園互動</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">O 觀察 → P 暫停 → E 探索 → N 說明：它為什麼推薦給我？</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">37</div></section>
+<section class="slide t-news" id="p38" data-label="38" data-sec="m2"><div class="inner"><div class="kicker">模組二｜⑤ 隱私與資訊安全 SAFE</div><h2 class="title"><span>工程師把原始碼貼給 ChatGPT</span></h2><div class="newsgrid n2"><a class="news has-shot" href="https://www.ithome.com.tw/news/156291" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_samsung.png" alt=""><div class="nw-text"><div class="nw-k"><b>iThome</b><span>2023-04</span></div><h3>三星員工把機密輸入 ChatGPT</h3><p>20 天內 3 起：程式原始碼、設備量測資料、會議紀錄</p><span class="nw-go">看原文 ↗</span></div></a><a class="news" href="https://www.bnext.com.tw/article/75096/samsung-ban-ai-gpt-may-23" target="_blank" rel="noopener"><div class="nw-text"><div class="nw-k"><b>數位時代</b><span>2023-05</span></div><h3>三星禁止員工使用生成式 AI</h3><p>資料存在外部伺服器，難以取回或刪除</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">臺北的做法：用單一身分驗證登入酷AI，學生不必另外註冊商用帳號</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">38</div></section>
+<section class="slide t-illus" id="p39" data-label="39" data-sec="m2"><div class="inner"><div class="kicker">模組二｜⑥ 教育工具化 HUMAN</div><h2 class="title"><span>健康支架 vs 認知債務</span></h2><div class="illus"><img class="ill" src="assets/shots/cp_p69_scaffold_debt.jpg" alt=""></div></div><div class="pno">39</div></section>
+<section class="slide t-news" id="p40" data-label="40" data-sec="m2"><div class="inner"><div class="kicker">模組二｜⑥ 教育工具化 HUMAN</div><h2 class="title"><span>有 AI 時考得好，拿掉就退步</span></h2><div class="newsgrid n2"><a class="news" href="https://www.oecd.org/en/publications/oecd-digital-education-outlook-2026_062a7394-en.html" target="_blank" rel="noopener"><div class="nw-text"><div class="nw-k"><b>OECD</b><span>2026-01</span></div><h3>Digital Education Outlook 2026</h3><p>有通用 AI 時作業品質較好；拿掉 AI 考試，優勢消失甚至反轉。有教學設計的教育型工具才有持續效果</p><span class="nw-go">看原文 ↗</span></div></a><a class="news has-shot" href="https://www.hurriyetdailynews.com/oecd-warns-ai-boosts-grades-but-not-lasting-learning-218598" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_oecd.png" alt=""><div class="nw-text"><div class="nw-k"><b>Hürriyet Daily News</b><span>2026</span></div><h3>OECD：AI 提高成績，但不帶來持久學習</h3><p>土耳其約 1,000 名高中生實驗：用過 AI 的學生之後表現最多差 17%</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">H 以人為本 → U 先理解 → M 有意義歷程 → A 真實經驗 → N 人際互動</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">40</div></section>
+<section class="slide t-news" id="p41" data-label="41" data-sec="m2"><div class="inner"><div class="kicker">模組二｜⑦ 情感依附錯位 CARE</div><h2 class="title"><span>陪伴型 AI，禁止未成年開放聊天</span></h2><div class="newsgrid n2"><a class="news has-shot" href="https://www.nbcnews.com/tech/characterai-lawsuit-florida-teen-death-rcna176791" target="_blank" rel="noopener"><img class="nw-shot" src="assets/shots/news_cai.png" alt=""><div class="nw-text"><div class="nw-k"><b>NBC News</b><span>2024-10</span></div><h3>14 歲少年與聊天機器人對話後輕生，母親提告</h3><p>訴狀指控平臺設計刻意讓使用者產生情感依附</p><span class="nw-go">看原文 ↗</span></div></a><a class="news" href="https://www.eweek.com/news/google-character-ai-teen-suicide-lawsuits/" target="_blank" rel="noopener"><div class="nw-text"><div class="nw-k"><b>eWEEK</b><span>2026-01</span></div><h3>Character.AI 與 Google 和解多起訴訟</h3><p>2025-10 起，未滿 18 歲不能再和角色開放式聊天</p><span class="nw-go">看原文 ↗</span></div></a></div><p class="foot">C 覺察情緒 → A 知道 AI 沒有真感情 → R 找真人求助 → E 回到真實互動</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">41</div></section>
+<section class="slide t-case" id="p42" data-label="42" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜小組活動</div><div class="situation"><span class="tag">情境</span>每組抽一個風險，設計一個讓學生練習因應策略的教學情境</div>
+<ol class="steps qs"><li><span class="num">1</span><span>主任務：情境＋因應策略（可參考指引或用 AI 發想）</span></li><li><span class="num">2</span><span>子任務 A：面對認知卸載，評量怎麼改？（口試、現場寫作）</span></li><li><span class="num">3</span><span>子任務 B：專題報告怎麼設計可驗證的「AI 對話紀錄」繳交清單？</span></li></ol><p class="foot">組長建雲端文件設共用，連結貼到 Padlet 小組任務區</p></div><figure class="wa-art"><img src="assets/illus/group_task.jpg" alt=""></figure></div></div><div class="pno">42</div></section>
+<section class="slide t-case" id="p43" data-label="43" data-sec="m2"><div class="inner"><div class="kicker">第三組成果｜風險三：AI 幻覺與偏見</div><div class="situation"><span class="tag">情境</span>「AI 小老師講錯了！」學生當查證小偵探</div>
+<ol class="steps qs"><li><span class="num">1</span><span>老師先拿本單元的問題問 AI，挑出真的有錯、有偏見的回答（截圖）</span></li><li><span class="num">2</span><span>學生用 FACT：圈出可疑 → 寫追問句 → 課本＋平板查證 → 改寫</span></li><li><span class="num">3</span><span>最後全班約定：用 AI 的答案，一定附查證來源</span></li></ol><p class="foot">國小高年級；社會、自然、英語、數學都能套</p></div><div class="pno">43</div></section>
+<section class="slide t-flow5" id="p44" data-label="44" data-sec="m2"><div class="inner"><div class="kicker">第三組成果｜一節課怎麼走</div><h2 class="title"><span>40 分鐘：從梗圖到班級約定</span></h2><div class="cards c5 arrows flow5"><div class="card"><h3>真實情境 5 分</h3><p>Google AI 叫人在披薩加膠水，猜猜為什麼</p></div><div class="card"><h3>方法教學 5 分</h3><p>FACT：找可疑、問依據、查證、修正</p></div><div class="card"><h3>實作練習 20 分</h3><p>分組抓出學習單裡 2 個錯誤＋1 個偏見</p></div><div class="card"><h3>反思覺察 7 分</h3><p>哪一句最難抓？AI 為什麼會錯？</p></div><div class="card"><h3>教師導學 3 分</h3><p>訂「AI 答案要附來源」班級約定</p></div></div></div><div class="pno">44</div></section>
+<section class="slide t-shot" id="p45" data-label="45" data-sec="m2"><div class="inner"><div class="kicker">第三組成果｜偏見怎麼教</div><h2 class="title"><span>共備時整理過：AI 偏誤、AI 幻覺的課堂活動</span></h2><div class="shot"><img src="assets/shots/cp_image19.jpg" alt=""></div></div><div class="pno">45</div></section>
+<section class="slide t-cards" id="p46" data-label="46" data-sec="m2"><div class="inner"><div class="kicker">第三組成果｜偏見怎麼教</div><h2 class="title"><span>請 AI 畫一位「科學家」</span></h2><div class="cards c3"><div class="card"><h3>1 先畫</h3><p>請 AI 畫科學家、工程師、護理師各一張</p></div><div class="card"><h3>2 再找</h3><p>觀察：性別、年齡、膚色是不是都一樣？</p></div><div class="card"><h3>3 改寫</h3><p>改寫提示詞，讓畫面多元、尊重差異</p></div></div><p class="foot">上午講師補充：訓練資料可以被「加權」，想讓 AI 偏向哪邊就會偏</p></div><div class="pno">46</div></section>
+<section class="slide t-cards" id="p47" data-label="47" data-sec="m2"><div class="inner"><div class="kicker">第三組成果｜學科變化</div><h2 class="title"><span>同一招，四個學科</span></h2><div class="cards c4"><div class="card"><h3>自然</h3><p>比對 AI 給的實驗步驟、數據與課本</p></div><div class="card"><h3>英語</h3><p>找出 AI 翻譯錯或語氣不對的地方</p></div><div class="card"><h3>數學</h3><p>找出 AI 多步驟計算算錯的那一步</p></div><div class="card"><h3>資訊</h3><p>比較兩個 AI 的答案：哪個可信？怎麼判斷？</p></div></div></div><div class="pno">47</div></section>
+<section class="slide t-cards" id="p48" data-label="48" data-sec="m2"><div class="inner"><div class="kicker">第三組成果｜子任務 A、B</div><h2 class="title"><span>評量與 AI 對話紀錄</span></h2><div class="cards c2"><div class="card"><h3>A 面對認知卸載</h3><p>最後一題不用 AI，口頭說明你怎麼發現錯誤<br>或在課堂現場改寫一段，不帶回家</p></div><div class="card"><h3>B AI 對話紀錄清單</h3><p>① 問 AI 的原句　② AI 回答截圖<br>③ 圈出的可疑句　④ 查證來源（至少 2 個）<br>⑤ 修正後版本　⑥ 哪些是 AI 幫忙的</p></div></div><p class="foot">臺北接點：酷AI 在課綱單元內回答、老師看得到互動紀錄，更容易做查證教學</p></div><div class="pno">48</div></section>
+<section class="slide t-cards" id="p49" data-label="49" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜負責任使用 AI 七原則 p.159–164</div><h2 class="title"><span>《人工智慧基本法》七原則，套到教室</span></h2><div class="cards c4"><div class="card"><h3>永續發展與福祉</h3><p>真的促進學習、縮小落差嗎？</p></div><div class="card"><h3>以人為本</h3><p>教學判斷與評量決定在人</p></div><div class="card"><h3>隱私與資料治理</h3><p>資料最小化，不輸入個資</p></div><div class="card"><h3>資訊與使用安全</h3><p>工具、內容、學生身心安全</p></div><div class="card"><h3>透明與可解釋</h3><p>說得出 AI 幫了哪一部分</p></div><div class="card"><h3>公平與不歧視</h3><p>辨識性別、族群等偏見</p></div><div class="card"><h3>可問責與誠信</h3><p>AI 錯誤不是逃避責任的理由</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m2-27.png" alt=""><figcaption>公版模組二 p.24</figcaption></figure></div></div><div class="pno">49</div></section>
+<section class="slide t-cards" id="p50" data-label="50" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜由 AI Ask 到 AI Agent</div><h2 class="title"><span>從回答問題，到協助完成任務</span></h2><div class="cards c2"><div class="card"><h3>AI Ask：提問，自己動手</h3><p>一問一答<br>使用者完全控制<br>適合查資料、解釋、修改</p></div><div class="card"><h3>AI Agent：設定目標，AI 動手</h3><p>給一個目標，AI 自己規劃步驟並執行<br>多步驟、會用工具（Skills、Tools）<br>適合整理、批改、產出成品</p></div></div><p class="foot">教育型 AI 走「慢 AI」：不直接給答案，用蘇格拉底式提問引導</p></div><figure class="wa-art"><img src="assets/shots/gb_m2-38.png" alt=""><figcaption>公版模組二 p.35</figcaption></figure></div></div><div class="pno">50</div></section>
+<section class="slide t-shotText" id="p51" data-label="51" data-sec="m2"><div class="inner"><div class="kicker">模組二｜工具</div><h2 class="title"><span>公版列的工具，我每天都在用</span></h2><div class="st"><div class="st-img"><img src="assets/shots/guide_agent_tools.png" alt=""></div><div class="st-text"><p>公版 p.30：Codex、<b>Claude Code</b>、Claude Cowork、Gemini CLI……</p><p>中心的實例：用 AI Agent 批次產製<b>酷AI 課程包</b></p><p>全市 250 校報表：一套參數化範本 × 每校資料</p><p><b>風險同一套</b>：工具安全、內容安全、學生身心安全</p></div></div><p class="src">資料來源｜模組二公版簡報 p.30</p></div><div class="pno">51</div></section>
+<section class="slide t-steps" id="p52" data-label="52" data-sec="m2"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組二｜應用情境</div><h2 class="title"><span>AI Agent 可以幫老師做什麼</span></h2><ol class="steps"><li><span class="num">1</span><span>依學習目標與作業，產生 Rubrics 評量尺規</span></li><li><span class="num">2</span><span>依尺規批改資料夾裡的學生作業，彙整成試算表</span></li><li><span class="num">3</span><span>依試算表分析學習狀況，產生圖表</span></li></ol><p class="foot">學生資料先去識別化；AI 批改的結果，老師要抽查</p></div><figure class="wa-art"><img src="assets/illus/agent_pipeline.jpg" alt=""></figure></div></div><div class="pno">52</div></section>
+<section class="slide t-video" id="p53" data-label="53" data-sec="m2"><div class="inner"><div class="kicker">模組二｜示範</div><h2 class="title"><span>AI Agent 使用示範（以 Codex 為例）</span></h2><div class="shot video"><iframe src="https://www.youtube.com/embed/if0cj1Fb248" title="AI Agent 使用示範（以 Codex 為例）" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div><div class="pno">53</div></section>
+<section class="slide t-divider" id="p54" data-label="54" data-sec="m3"><div class="inner"><div class="divider"><div class="dv-text"><div class="kicker big">模組三｜80 分</div>
+<h2 class="dv-title">AI 賦能教學</h2><div class="dv-sub">公版用 e度，臺北用酷AI</div></div>
+<div class="dv-ill"><img class="ill" style="height:auto;border-radius:24px;box-shadow:0 12px 40px rgba(30,58,110,.18)" src="assets/shots/cp_p43_ai_levels.jpg" alt=""></div></div></div><div class="pno">54</div></section>
+<section class="slide t-table" id="p55" data-label="55" data-sec="m3"><div class="inner"><div class="kicker">模組三｜80 分鐘怎麼走</div><h2 class="title"><span>五段流程</span></h2><table class="tbl"><thead><tr><th>時間</th><th>內容</th></tr></thead><tbody><tr><td>5 分</td><td>回顧：AI 素養與 AIPACK</td></tr><tr><td>5 分</td><td>教育型 AI：因材網 e度／臺北酷AI</td></tr><tr><td>20 分</td><td>AIPACK 教學示例：教案概覽＋數位教學雙向表</td></tr><tr><td>25 分</td><td>小組：擇一教案，分析 AI 使用情境</td></tr><tr><td>25 分</td><td>各組分享（Padlet）</td></tr></tbody></table></div><div class="pno">55</div></section>
+<section class="slide t-bullets" id="p56" data-label="56" data-sec="m3"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組三｜使用 AI 前</div><h2 class="title"><span>先想清楚這五件事</span></h2><ul class="bul"><li class="">工具類型、學生年齡適切性、資料隱私、平臺安全、學習目標</li><li class="">注意學生有沒有「學習外包」或「認知卸載」</li><li class="hl">AI 定位為「輔助理解」與「促進反思」的鷹架</li><li class="">明確設計任務邊界、提問規則、查證機制與反思要求</li><li class="">AI 支持深度學習，不取代學習歷程</li></ul></div><figure class="wa-art"><img src="assets/illus/before_ai.jpg" alt=""></figure></div></div><div class="pno">56</div></section>
+<section class="slide t-cards" id="p57" data-label="57" data-sec="m3"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組三｜AIPACK</div><h2 class="title"><span>TPACK 加上 AI</span></h2><div class="cards c3"><div class="card"><h3>AIK 人工智慧知識</h3><p>AI 怎麼運作、能做什麼、限制在哪</p></div><div class="card"><h3>PK 教學知識</h3><p>怎麼教：提問、分組、差異化</p></div><div class="card"><h3>CK 學科知識</h3><p>教什麼：課綱單元的核心概念</p></div></div><p class="foot">三者交集＝AIPACK：在這個單元，用這種教法，配這樣的 AI（改自 Koehler 2012）</p></div><figure class="wa-art"><img src="assets/shots/gb_m3-13.png" alt=""><figcaption>AIPACK 示意圖（改自 Koehler 2012）</figcaption></figure></div></div><div class="pno">57</div></section>
+<section class="slide t-cards" id="p58" data-label="58" data-sec="m3"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組三｜選工具三問</div><h2 class="title"><span>選 AI 工具前，先問</span></h2><div class="cards c3"><div class="card"><h3>符合年齡與學習目標嗎？</h3><p>確認使用年齡限制，避免為用科技而用科技</p></div><div class="card"><h3>有資料隱私保障嗎？</h3><p>不在通用型 AI 輸入姓名、學校、成績</p></div><div class="card"><h3>跟我的課程設計相容嗎？</h3><p>能融入課程流程、服務學習目標</p></div></div></div><figure class="wa-art"><img src="assets/illus/choose_tool.jpg" alt=""></figure></div></div><div class="pno">58</div></section>
+<section class="slide t-table" id="p59" data-label="59" data-sec="m3"><div class="inner"><div class="kicker">模組三｜表 4-1 套到臺北</div><h2 class="title"><span>教育型 AI 的特徵，酷AI 怎麼對？</span></h2><table class="tbl"><thead><tr><th>表 4-1 的特徵</th><th>通用型 AI</th><th>酷AI</th></tr></thead><tbody><tr><td>設計目的</td><td>使用者要什麼就做什麼</td><td>對應課綱單元的學習活動</td></tr><tr><td>登入與資料</td><td>個人帳號、各平臺年齡限制</td><td>臺北市單一身分驗證</td></tr><tr><td>教師角色</td><td>老師看不到過程</td><td>老師開課、看作答結果與課後分析</td></tr><tr><td>教育部</td><td>需學校自行評估</td><td>酷課雲列入 A2 推薦名單</td></tr></tbody></table></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">59</div></section>
+<section class="slide t-table" id="p60" data-label="60" data-sec="m3"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組三｜AI 素養燈號</div><h2 class="title"><span>紅黃綠燈，學生一看就懂</span></h2><table class="tbl compact"><thead><tr><th>🟢 鼓勵使用</th><th>🟡 可用但要查核</th><th>🔴 不可使用</th></tr></thead><tbody><tr><td>概念理解與知識探索</td><td>草稿生成</td><td>直接貼上 AI 答案</td></tr><tr><td>腦力激盪與創意發想</td><td>資料整理與摘要</td><td>把作業完全交給 AI</td></tr><tr><td>語言翻譯與語句修正</td><td>解題檢查或程式除錯</td><td>把 AI 內容當成自己的作品</td></tr><tr><td>筆記整理與學習架構</td><td>資料蒐集與整理</td><td>輸入自己或他人的個資</td></tr><tr><td>學習反思與自我檢核</td><td>使用時註明來源</td><td>未查證就相信 AI</td></tr></tbody></table><p class="foot">黃燈的關鍵：查證＋標示 AI 協助的部分</p></div><figure class="wa-art"><img src="assets/illus/traffic_light.jpg" alt=""></figure></div></div><div class="pno">60</div></section>
+<section class="slide t-table" id="p61" data-label="61" data-sec="m3"><div class="inner"><div class="kicker">模組三｜學習外包</div><h2 class="title"><span>四種風險，老師怎麼接</span></h2><table class="tbl compact"><thead><tr><th>風險</th><th>學生會怎樣</th><th>老師可以</th></tr></thead><tbody><tr><td>學習外包與認知卸載</td><td>習慣讓 AI 代替思考</td><td>要求說明怎麼用 AI、自己怎麼判斷</td></tr><tr><td>批判思考弱化</td><td>接受 AI 答案、不質疑</td><td>比較 AI 回應與自己判斷的差異</td></tr><tr><td>過度依賴、心理依附</td><td>沒有 AI 就焦慮</td><td>定期安排不用 AI 的任務</td></tr><tr><td>學術誠信疑慮</td><td>作業、作文全程代勞</td><td>訂使用規範，要求標示 AI 輔助部分</td></tr></tbody></table></div><div class="pno">61</div></section>
+<section class="slide t-illus" id="p62" data-label="62" data-sec="m3"><div class="inner"><div class="kicker">模組三｜評量怎麼改</div><h2 class="title"><span>兩條評量車道</span></h2><div class="illus"><img class="ill" src="assets/shots/cp_p71_two_lane.jpg" alt=""></div></div><div class="pno">62</div></section>
+<section class="slide t-illus" id="p63" data-label="63" data-sec="m3"><div class="inner"><div class="kicker">模組三｜老師用 AI 備課</div><h2 class="title"><span>先思考，後對話：四個階段</span></h2><div class="illus"><img class="ill" src="assets/shots/cp_p15_four_stages.jpg" alt=""></div></div><div class="pno">63</div></section>
+<section class="slide t-cards" id="p64" data-label="64" data-sec="m3"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">模組三｜AIPACK 四學</div><h2 class="title"><span>自學、共學、互學、導學</span></h2><div class="cards c4"><div class="card"><h3>學生自學</h3><p>看影片、做練習、發現自己的難點</p></div><div class="card"><h3>組內共學</h3><p>依老師指派的題目討論、形成共識</p></div><div class="card"><h3>組間互學</h3><p>上傳大屏或平臺發表、互相釋疑</p></div><div class="card"><h3>教師導學</h3><p>依學習結果總結難點、帶反思</p></div></div></div><figure class="wa-art"><img src="assets/shots/gb_m3-15.png" alt=""><figcaption>公版模組三：因材網輔助四學</figcaption></figure></div></div><div class="pno">64</div></section>
+<section class="slide t-shot2" id="p65" data-label="65" data-sec="m3"><div class="inner"><div class="kicker">模組三｜酷AI 對到四學</div><h2 class="title"><span>學生自學 → 老師看數據 → 精準推薦</span></h2><div class="shot two"><img src="assets/shots/kuai_08.png" alt=""><img src="assets/shots/kuai_09.png" alt=""></div><p class="src">資料來源｜《2026 酷AI 系統新增功能介紹》</p></div><div class="pno">65</div></section>
+<section class="slide t-table" id="p66" data-label="66" data-sec="m3"><div class="inner"><div class="kicker">模組三｜教案示例一</div><h2 class="title"><span>國小國語四下〈建築界的長頸鹿〉（5 節）</span></h2><table class="tbl compact"><thead><tr><th>階段</th><th>老師</th><th>學生</th><th>AI 與提示語</th></tr></thead><tbody><tr><td>課前</td><td>指派 AI 語音朗讀與預習單</td><td>完成朗讀與預習</td><td>AI 語音即時回饋發音、語調</td></tr><tr><td>課中</td><td>帶小組拆解說明文「總分總」結構</td><td>組內共學查資料；他組發表時追問 AI 驗證</td><td>「請根據已上傳的資料，補充雙峰塔的設計者、地點、外型、風格」</td></tr><tr><td>課後</td><td>說明文＋非連續文本寫作</td><td>完成寫作與圖例</td><td>「第一段應該怎麼起頭？」請 AI 根據資料補充修正</td></tr><tr><td>反思</td><td>—</td><td>填「AI 協作比較表」</td><td>說明 AI 怎麼協助構思與修正</td></tr></tbody></table><p class="foot">臺北可以換成：酷AI 的 AI 作文輔助、AI 小幫手</p></div><div class="pno">66</div></section>
+<section class="slide t-table" id="p67" data-label="67" data-sec="m3"><div class="inner"><div class="kicker">模組三｜教案示例二</div><h2 class="title"><span>國中數學九上〈三角形的三心〉</span></h2><table class="tbl compact"><thead><tr><th>階段</th><th>老師</th><th>學生</th><th>AI 與提示語</th></tr></thead><tbody><tr><td>課前</td><td>確認能登入平臺</td><td>看指派影片自學</td><td>「用公園蓋噴水池和蓋涼亭，解釋外心與內心」</td></tr><tr><td>課中</td><td>巡視：有沒有直接要答案？鼓勵問更深的問題</td><td>記錄 AI 回答摘要，畫尺規圖</td><td>「中垂線、中線、角平分線可能是同一條線嗎？」</td></tr><tr><td>共學</td><td>異質分組、引導但不給答案</td><td>完成三心性質比較表</td><td>「數學裡還有哪些因定義不同的心？」</td></tr><tr><td>課後</td><td>統整生活應用</td><td>單元診斷測驗、錯題反思</td><td>請 AI 依錯題生成類似題</td></tr></tbody></table><p class="foot">老師巡視時看的不是答案，是學生怎麼問</p></div><div class="pno">67</div></section>
+<section class="slide t-shot2" id="p68" data-label="68" data-sec="m3"><div class="inner"><div class="kicker">模組三｜學科融合</div><h2 class="title"><span>程式、臺語、英語口說</span></h2><div class="shot three"><img src="assets/shots/kuai_10.png" alt=""><img src="assets/shots/kuai_11.png" alt=""><img src="assets/shots/kuai_12.png" alt=""></div><p class="src">資料來源｜《2026 酷AI 系統新增功能介紹》</p></div><div class="pno">68</div></section>
+<section class="slide t-steps" id="p69" data-label="69" data-sec="m3"><div class="inner"><div class="kicker">模組三｜小組共學 25 分</div><h2 class="title"><span>擇一教案，解構 AI 的運用</span></h2><ol class="steps"><li><span class="num">1</span><span>小組共讀一篇 AI 教案（5 分）</span></li><li><span class="num">2</span><span>找出教案中使用 AI 的時機</span></li><li><span class="num">3</span><span>測試教案裡指導 AI 的方式（示範或引導語）</span></li><li><span class="num">4</span><span>填表貼到 Padlet，提出建議</span></li></ol><p class="foot">分享每組 5 分：教案簡述 2 分、AI 使用分析 2 分、他組回饋 1 分</p><a class="link" href="https://drive.google.com/drive/folders/1Xdq4lgvEGMNxpXbr62Pe9Tcnznn5hGV5" target="_blank" rel="noopener">https://drive.google.com/drive/folders/1Xdq4lgvEGMNxpXbr62Pe9Tcnznn5hGV5</a></div><div class="pno">69</div></section>
+<section class="slide t-shot" id="p70" data-label="70" data-sec="m3"><div class="inner"><div class="kicker">模組三｜普及化與平權化</div><h2 class="title"><span>愛沙尼亞：全國高中生都有 AI</span></h2><div class="shot"><img src="assets/shots/news_estonia.png" alt=""></div><p class="src">資料來源｜愛沙尼亞教育與研究部 2025-02-25（截圖）</p></div><div class="pno">70</div></section>
+<section class="slide t-cards" id="p71" data-label="71" data-sec="m3"><div class="inner"><div class="kicker">模組三｜普及化與平權化</div><h2 class="title"><span>誰付得起 AI？</span></h2><div class="cards c2"><div class="card"><h3>愛沙尼亞 AI Leap</h3><p>2025-09 起，政府提供高中生與教師免費的 ChatGPT Edu<br>首年約 2 萬名學生</p><div class=note>國家買單</div></div><div class="card"><h3>臺北酷AI</h3><p>全市師生用單一身分驗證就能用<br>2026-01 與連江、雲林、澎湖簽 MOU 共享</p><div class=note>城市分享</div></div></div><p class="foot">數位平權：不是每位老師自己付費，而是公共平臺讓每個孩子都用得到</p></div><button class="supbtn" title="補充資料（S）">📎 補充（1 則）</button><div class="pno">71</div></section>
+<section class="slide t-shotText" id="p72" data-label="72" data-sec="m3"><div class="inner"><div class="kicker">研習之後</div><h2 class="title"><span>隔天，英文老師自己做了 App</span></h2><div class="st"><div class="st-img"><img src="assets/shots/sanxing_app.jpg" alt=""></div><div class="st-text"><p>2026-11-18 三興國小 2 小時 AI 研習</p><p>隔天：英文老師做出<b>單字複習 App</b>，放上 Google Sites</p><p>課堂上：平板個人練習＋大屏全班複習</p><p>數位科技不是目的，是讓老師<b>明天就能用</b></p></div></div><p class="src">資料來源｜三興國小教務主任 2026-11-19 提供</p></div><div class="pno">72</div></section>
+<section class="slide t-bullets" id="p73" data-label="73" data-sec="m3"><div class="inner"><div class="kicker">模組三｜活動省思</div><h2 class="title"><span>教師 AI 素養自我評估</span></h2><ul class="bul"><li class="">整天的研習，你最有感的是什麼？</li><li class="">你看到自己可以增強或改善的地方？</li></ul><a class="link" href="https://linyisan-sudo.github.io/teacher_ai_assessment/" target="_blank" rel="noopener">https://linyisan-sudo.github.io/teacher_ai_assessment/</a></div><div class="pno">73</div></section>
+<section class="slide t-cards" id="p74" data-label="74" data-sec="end"><div class="inner"><div class="wa"><div class="wa-main"><div class="kicker">回饋 10 分</div><h2 class="title"><span>Check out：三個問題</span></h2><div class="cards c3"><div class="card"><h3>亮點</h3><p>今天哪一個例子最有感？</p></div><div class="card"><h3>卡關</h3><p>哪裡還不清楚、還做不到？</p></div><div class="card"><h3>明天</h3><p>回到教室，你第一個想試什麼？</p></div></div></div><figure class="wa-art"><img src="assets/illus/checkout.jpg" alt=""></figure></div></div><div class="pno">74</div></section>
+<section class="slide t-closing" id="p75" data-label="75" data-sec="end"><div class="inner"><div class="cover"><div class="cover-text">
+<h1><mark>謝謝大家！</mark></h1><div class="hand">講指引，就用老師看得到的例子</div>
+<div class="meta">臺北的教育型 AI：酷AI（酷課雲）</div>
+<div class="who"><span>周凡淇｜臺北市數位學習中心｜nora@hhups.tp.edu.tw</span></div></div></div></div><div class="pno">75</div></section>
+</div></div>
+<aside id="panel" aria-label="補充資料與講稿"><header>
+<button data-tab="sup" class="act">📎 補充資料</button><button data-tab="notes">🗒 講稿</button>
+<button class="x" aria-label="關閉">✕</button></header><div id="pbody"></div></aside>
+<div id="grid"></div>
+
+</div>
+<div id="timerPanel" aria-label="倒數計時">
+ <h5>⏱ 倒數計時</h5>
+ <div class="row"><input id="tMin" type="number" min="0" max="180" value="5"> 分 <input id="tSec" type="number" min="0" max="59" value="0"> 秒</div>
+ <div class="row"><button class="ghost" data-p="60">1 分</button><button class="ghost" data-p="180">3 分</button><button class="ghost" data-p="300">5 分</button><button class="ghost" data-p="600">10 分</button><button class="ghost" data-p="900">15 分</button></div>
+ <div class="row"><button class="go" id="tStart">開始</button><button id="tPause">暫停／繼續</button><button class="ghost" id="tAdd">+1 分</button><button class="ghost" id="tReset">結束</button></div>
+ <div class="row"><label><input type="checkbox" id="tTick" checked> 每秒滴答聲</label><label><input type="checkbox" id="tWarnSnd" checked> 最後 10 秒提示音樂</label></div>
+</div>
+<div id="timerBadge" title="點一下打開計時設定"><span id="tLeft">05:00</span><span class="bar"><i id="tBar"></i></span></div>
+<div id="edgeGlow"></div>
+<div id="timesUp">時間到！</div>
+<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button data-href="g3.html" class="g3btn">上午報告 第三組</button></nav>
+<nav id="bar"><button id="bPrev">◀</button><button id="bTimer">⏱ 計時 T</button><button id="bGrid">總覽 O</button><button id="bSup">補充 S</button><button id="bNotes">講稿 N</button><button id="bFull">全螢幕 F</button><button id="bNext">▶</button></nav>
+<script>
+const SIDE=[{"n": "1", "notes": "大家好，我是臺北市數位學習中心的周凡淇。今天把《115 年中小學教師數位與 AI 教學指引》帶進臺北的教室。理論我少講，每個概念都配一則新聞或一張圖。", "sup": ""}, {"n": "2", "notes": "今天三個模組：模組一理解指引、模組二 AI 時代人的角色與數位識讀、模組三 AI 賦能教學。最後 10 分鐘回饋。到學校開課時，可以依時間挑模組。", "sup": ""}, {"n": "3", "notes": "指引說優先用教育部建置或推薦的平臺。這是教育部 A2 推薦名單，臺北酷課雲 115 年 10 月 16 日起列入。我等一下講的酷AI，就是酷課雲裡的 AI 學習系統。（注意：名單寫的是酷課雲，用詞是推薦，不是認證。）", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">官方資料</span><span class=\"ev ev-正式文件\">正式文件</span></div>\n<h4>A2 數位學習平臺推薦名單（教育部 AI 人才方舟計畫網站）</h4><ul><li>教育部因材網、Cool English 酷英、PaGamO、加分吧、HiTeach：115.09.01–118.12.31</li><li>臺北酷課雲、Yory 優歷：115.10.16–118.12.31</li><li>頁面用詞是「推薦」，沒有「認證」；名單上沒有「酷AI」這個名字</li></ul><p class=\"sup-src\">教育部 AI 人才方舟計畫－數位學習輔導團隊 <a href=\"https://pads.moe.edu.tw/teacher_list.php\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "4", "notes": "酷AI 累計 77 萬人次使用。今年 1 月和連江、雲林、澎湖簽 MOU，開放跨縣市共享。中心這兩年半到 253 所學校辦了 339 場研習。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">數據來源</span><span class=\"ev ev-正式文件\">正式文件</span></div>\n<h4>數字出處</h4><ul><li>77 萬人次、3 縣市 MOU：2026-01-26 酷AI 教學手冊發布暨跨縣市合作簽署記者會（林奕華副市長主持）</li><li>339 場、17,844 人次、253 校：數位學習中心研習推廣紀錄（2023-10～2026-04）</li><li>對照：e度到 2025-08 超過 70 萬人次（模組三公版簡報）</li></ul><p class=\"sup-src\"></p></article>"}, {"n": "5", "notes": "這四個問題取自公版的研習重點，整天都會用到。最後一句是公版特別提醒講師的：不要一直秀工具，要聚焦教學判斷。", "sup": ""}, {"n": "6", "notes": "模組一 30 分鐘，目標是讓老師知道這本指引在講什麼、怎麼用。", "sup": ""}, {"n": "7", "notes": "公版的開場活動。到學校開課時，我會請老師順便說一個用 AI 的失敗經驗，比驚豔更好聊。", "sup": ""}, {"n": "8", "notes": "被問到「為什麼不叫 4.0」：上午講師說，本來要叫 4.0，但同時出的校長版、家長版都只到 2.0，所以統一用年份「115 年」，以後也用年份。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">對照</span><span class=\"ev ev-正式文件\">正式文件</span></div>\n<h4>3.0 的年份</h4><ul><li>指引本文 p.16、17 寫 3.0 是 2024 年發布</li><li>公版模組一 p.6 寫「114 年 1 月」，與指引本文不同，以指引正本為準</li></ul><p class=\"sup-src\"></p></article>"}, {"n": "9", "notes": "115 年一次推出五份，中心是教師與學生 AI 素養框架。到學校講時可以提醒：家長版可以拿來辦親職講座。", "sup": ""}, {"n": "10", "notes": "六個特色，我只強調兩個：第一，這版開始談 AI 代理人；第二，以人為中心。", "sup": ""}, {"n": "11", "notes": "指引用船當意象。上午講師開了個玩笑：海盜船兩頭都是船頭，隨時可以轉向。重點是龍骨：以人為中心。", "sup": ""}, {"n": "12", "notes": "按 T 開計時器設 6 分鐘。上午分享的兩位老師：一位讀第五章因材網與 e度，提到「有效掙扎」；一位讀第六章詐騙，提到家人暗號。這兩章剛好就是模組三、模組二。", "sup": ""}, {"n": "13", "notes": "四個趨勢我只停在第二和第四：平臺我舉酷AI；學科融合，公版自己就舉了臺北的酷英。", "sup": ""}, {"n": "14", "notes": "公版的趨勢四，臺灣在地實踐舉的就是酷英網的 CoolE Bot。到臺北學校講，我會接著說：臺北還有酷AI，涵蓋各學科。", "sup": ""}, {"n": "15", "notes": "左邊是個人化學習路徑：智慧推薦影片、個人化試題、互動影片。右邊是學生端：AI 助教推薦影片和試題、答題即時批改、AI 小幫手解惑。", "sup": ""}, {"n": "16", "notes": "方舟計畫 2026 到 2029 年，六個子計畫。臺北已經有方向一致的系統：AI 學習系統有酷AI，教育大數據中心也在做。（兩者沒有隸屬關係，講成方向一致就好。）", "sup": ""}, {"n": "17", "notes": "上午講師說這四個面向要背，下午會抽問。口訣：倫理、技術、教學、專業發展。", "sup": ""}, {"n": "18", "notes": "學生的前兩項和老師一樣；第三項是賦能學習，第四項是系統設計。系統設計這格，臺北的資訊科技與 AI 教學綱要、Scratch 課程包都對得上。", "sup": ""}, {"n": "19", "notes": "上午講師說「這年代誰還在用 Wordwall」，改用 AI方舟遊戲。給 5 分鐘。", "sup": ""}, {"n": "20", "notes": "模組一用這句收尾，順便丟問題：數位教學最應該優先幫學生發展的核心能力是什麼？", "sup": ""}, {"n": "21", "notes": "模組二對應指引第六章（p.131–167）。七大風險我不讓老師背口訣，直接看新聞。", "sup": ""}, {"n": "22", "notes": "公版排 60 分鐘。上午講師說，他們給數學輔導員的場次，光七大風險就排了兩小時。時間不夠就挑三個風險講。", "sup": ""}, {"n": "23", "notes": "七個風險一張表。接下來每個風險配一則新聞。", "sup": ""}, {"n": "24", "notes": "先放左邊：「已經在 GPT 獲得診斷的患者，請勿再向我們尋求意見，請改向 Google 查詢」。請老師想：醫院真的會這樣公告嗎？再放右邊：版面、句子一模一樣，只是換成豆包、千問、元寶、百度。同一個模板換字，比較像梗圖；而且查不到任何醫院發過。", "sup": ""}, {"n": "25", "notes": "揭曉：網友惡搞的梗圖，不是任何醫院的公告。它會紅，是因為大家心有戚戚：一上午看 30 個號，25 個病人帶著 AI 結果來看病。假的告示，反映的是真的焦慮。", "sup": ""}, {"n": "26", "notes": "先別看下面的答案。請老師想：你會轉傳嗎？……這張是 2023 年 3 月用 Midjourney 生成的，當時很多人信以為真。用 STEP 四步走一次。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>教宗羽絨外套假照片（CBS News）</h4><ul><li>2023 年 3 月以 Midjourney 生成，在社群瘋傳</li><li>製作者說只是練習，但和其他傳言一起流傳，形成假敘事</li><li>同類事件：2023-05「五角大廈爆炸」AI 假圖，美股一度下跌</li></ul><p class=\"sup-src\"> <a href=\"https://www.cbsnews.com/news/pope-francis-puffer-jacket-fake-photos-deepfake-power-peril-of-ai\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "27", "notes": "上午模組二講師用的例子：火彩。真的照片看起來反而像假的。STEP 的重點是查證，不是什麼都說假。請學生用以圖搜圖找出處。", "sup": ""}, {"n": "28", "notes": "AI 變聲只要 5 秒音檔。公版講師示範的「爺爺接到哥哥電話」就是這種。上午有位老師分享得很好：對孩子最有用的不是一套查證流程，而是跟家人約好暗號。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>AI 變聲詐騙</h4><ul><li>TechNews 2026-06-11：取得約 5 秒語音就可能產生以假亂真的聲音</li><li>數位時代整理刑事局說法：深偽可即時模仿親屬聲音與影像</li></ul><div class=\"tk\"><b>上台可以這樣說</b><p>接到家人說出事要匯錢，先掛掉，用原本存的電話打回去確認。</p></div><p class=\"sup-src\"> <a href=\"https://technews.tw/2026/06/11/ai-voice-cloning-scams/\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "29", "notes": "每個風險都可以套這五步。詐騙這題：情境是爺爺接到電話，方法是 STEP，練習是角色扮演，反思是「如果是你會怎麼做」，最後全班約定家庭暗號。", "sup": ""}, {"n": "30", "notes": "公版的分齡建議。國小重點是「先想再問」，國中是「用自己的話說」，高中是「查證後提出觀點」。", "sup": ""}, {"n": "31", "notes": "共備用過的插圖：認知卸載是把大腦的工作交給工具；能力錯覺是作品很漂亮，一問三不知。", "sup": ""}, {"n": "32", "notes": "MIT 的實驗：用 ChatGPT 寫作文的那組，腦部連結最弱，而且很難引用自己剛寫的句子。所以 THINK 的第一步是先自己試。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">研究</span><span class=\"ev ev-研究報告\">研究報告</span></div>\n<h4>MIT Media Lab（Kosmyna 等，2025-06）</h4><ul><li>54 位受試者，分 AI、搜尋、純人腦三組，以 EEG 量測寫作時的腦部連結</li></ul><div class=\"lm\"><b>研究限制・引用提醒</b><ul><li>預印本、尚未同儕審查、樣本小、只測寫作，不能說「ChatGPT 傷害大腦」</li></ul></div><p class=\"sup-src\"> <a href=\"https://www.media.mit.edu/publications/your-brain-on-chatgpt/\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "33", "notes": "N 換題再做最好用：學生用 AI 學完，老師給一題類似但不同的題目，不用 AI 再做一次。", "sup": ""}, {"n": "34", "notes": "這是最好笑也最好記的 AI 幻覺例子。Google 的 AI 摘要把 Reddit 上 11 年前的玩笑當真，教人用膠水黏起司。Google 後來承認「披薩膠水」是真的，並說 AI 不擅長分辨諷刺內容。上課可以先只給題目，讓學生猜 AI 怎麼回答。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>Google AI Overviews 出包（2024-05）</h4><ul><li>膠水建議出自 Reddit 11 年前的玩笑留言；吃石頭出自諷刺網站 The Onion</li><li>Google 說許多瘋傳截圖是假的，但確認「披薩膠水」等例子是真的</li><li>Google 之後縮減 AI 摘要出現的範圍</li></ul><div class=\"tk\"><b>上台可以這樣說</b><p>AI 讀到的網路內容，有些本來就是玩笑。</p></div><p class=\"sup-src\"> <a href=\"https://www.unsw.edu.au/newsroom/news/2024/05/eat-a-rock-a-day-put-glue-on-your-pizza-how-googles-ai-is-losing-touch-with-reality\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "35", "notes": "左邊是司法院提醒法官不要用 AI 生成判決；右邊是網路上流傳的一張告示：「本所不受理 AI 寫的契約或 AI 翻譯文件」。專業領域已經開始對 AI 產出設防。", "sup": ""}, {"n": "36", "notes": "連專業律師都會被 AI 騙。新墨西哥州的律師用 ChatGPT 整理筆錄，書狀裡冒出不存在的證人。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>AI 幻覺進法院</h4><ul><li>2026-09 新墨西哥州：虛構證人與證詞，罰 5,000 美元、移送律師紀律委員會</li><li>美國律師協會立場：用 AI 不違規，但律師對內容正確負最終責任</li></ul><div class=\"lm\"><b>研究限制・引用提醒</b><ul><li>「超過 500 起」為媒體整理的統計，引用時說「媒體統計」</li></ul></div><p class=\"sup-src\"> <a href=\"https://finance.technews.tw/2026/09/29/lawyer-cites-fake-witnesses-in-murder-case-and-blames-chatgpt/\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "37", "notes": "請老師打開自己的短影音首頁，跟旁邊的人比一比：你們看到的一樣嗎？這就是 OPEN 的 O：觀察平臺為什麼推薦這些給我。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>TikTok 演算法研究</h4><ul><li>倫敦大學學院與肯特大學研究，以帳號監測 5 天</li><li>研究者建議培養「健康數位飲食」，不是一味禁用</li></ul><div class=\"lm\"><b>研究限制・引用提醒</b><ul><li>TikTok 批評研究方法；研究測的是特定帳號情境，不代表所有使用者</li></ul></div><div class=\"cl\"><b>課堂可以這樣做</b><ol><li>請學生記錄自己首頁前 10 則影片的類型</li><li>和同學交換比較，討論「為什麼不一樣」</li><li>主動搜尋一個相反觀點的影片</li></ol></div><p class=\"sup-src\"> <a href=\"https://www.taiwannews.com.tw/zh/news/5091815\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "38", "notes": "三星的工程師為了抓 bug，把整份原始碼貼給 ChatGPT。換到學校，就是老師把學生成績、名單貼進商用 AI。注意事項 2.1 說不得用個人帳號處理學生資料。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>三星 ChatGPT 外洩事件（2023）</h4><ul><li>半導體部門 20 天內 3 起：原始碼除錯、測試序列最佳化、會議錄音摘要</li><li>2023-05 全面限制員工使用生成式 AI</li></ul><div class=\"tk\"><b>上台可以這樣說</b><p>老師最常犯的版本：把全班成績表貼進 AI 請它分析。S 停下 → A 避免 → F 去識別化 → E 不確定就問。</p></div><p class=\"sup-src\"> <a href=\"https://www.ithome.com.tw/news/156291\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "39", "notes": "把記憶交給 AI 是健康的支架；把推理交給 AI 就是認知債務，作業看起來很好，以為自己會了。", "sup": ""}, {"n": "40", "notes": "OECD 今年的報告：有 AI 時作業看起來比較好，拿掉 AI 考試就打回原形。差別在於有沒有教學設計。這就是公版說的「17%」，但這個數字出自媒體報導，OECD 頁面沒有直接寫。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">研究</span><span class=\"ev ev-研究報告\">研究報告</span></div>\n<h4>OECD Digital Education Outlook 2026</h4><ul><li>通用型 GenAI 提升作業表現，但移除後在考試中優勢消失，有時反轉</li><li>用 GenAI 完成任務，不等於學到東西；有教學目的的教育型工具較能帶來持續學習</li></ul><div class=\"lm\"><b>研究限制・引用提醒</b><ul><li>「17%」出自 Hürriyet 對土耳其實驗的報導，OECD 頁面本身沒有這個數字，引用前查原文</li><li>公版模組一 p.18 引成 Outlook 2025、p.26 引成 2026，年份不一</li></ul></div><p class=\"sup-src\"> <a href=\"https://www.oecd.org/en/publications/oecd-digital-education-outlook-2026_062a7394-en.html\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "41", "notes": "這是最沉重的一則。國小到高中都要談：AI 可以陪你練習表達，但遇到重要情緒要找真人。對學生講時依年齡調整，不談細節。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-媒體報導\">媒體報導</span></div>\n<h4>Character.AI 訴訟</h4><ul><li>2025-05 聯邦法官裁定訴訟可以進行</li><li>2025-10 宣布未滿 18 歲不能再進行開放式角色聊天</li><li>2026-01 報導與多個家庭和解，條件未公開</li></ul><div class=\"lm\"><b>研究限制・引用提醒</b><ul><li>訴狀內容是指控，未經判決證實；涉及自殺議題，對學生講要依年齡調整，避免細節</li></ul></div><p class=\"sup-src\"> <a href=\"https://www.nbcnews.com/tech/characterai-lawsuit-florida-teen-death-rcna176791\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "42", "notes": "小組活動。子任務 B 很實用：要求學生繳 AI 對話紀錄，並揭露哪些部分用了 AI。", "sup": ""}, {"n": "43", "notes": "我們第三組抽到風險三：AI 幻覺與偏見。設計叫「AI 小老師講錯了」。重點是錯誤要老師真的從 AI 問出來，不要自己編，學生才查得到。", "sup": ""}, {"n": "44", "notes": "套公版的數位識讀五步。引起動機用膠水披薩，學生一定會笑，也一定記得。", "sup": ""}, {"n": "45", "notes": "上次共備整理的表：AI 偏誤可以請 AI 生成「最適合女生的職業」，讓學生辨識偏見；AI 幻覺給一段錯誤的事實，學生用 Google 查證。", "sup": ""}, {"n": "46", "notes": "偏見比幻覺難教，最直觀的做法是請 AI 畫職業人物，讓學生自己發現刻板印象，再用 FACT 的 T 改寫。", "sup": ""}, {"n": "47", "notes": "任何學科都能套：先讓 AI 犯錯，再讓學生抓錯。", "sup": ""}, {"n": "48", "notes": "子任務 A 和 B。B 的清單可以直接當作業單。", "sup": ""}, {"n": "49", "notes": "七原則每條我只留一句教室版。最常用的是「透明」：不只說有沒有用 AI，而是說得出 AI 幫了哪一部分、哪些經過查證修正。", "sup": ""}, {"n": "50", "notes": "AI 代理人一句話：給 AI 一個目標，它自己規劃步驟、執行、完成任務（指引 p.44–45）。", "sup": ""}, {"n": "51", "notes": "公版列的 AI Agent 工具，Claude Code、Codex，就是我們中心每天在用的。重點不是工具多強，而是：給 AI 一個目標，它自己規劃步驟，人負責驗收。", "sup": ""}, {"n": "52", "notes": "公版的三個例子剛好是一條流水線。示範時用虛構的學生作業。還有什麼應用情境？請老師想想。", "sup": ""}, {"n": "53", "notes": "Padlet 上的 Codex 安裝與入門影片，課後可以自己看。現場時間夠就直接示範。", "sup": ""}, {"n": "54", "notes": "模組三對應指引第四、五部分（p.68–131）。公版的示例全部是因材網、e度；到臺北，我換成酷AI。", "sup": ""}, {"n": "55", "notes": "公版的五段。小組共學是重頭戲，占 50 分鐘。", "sup": ""}, {"n": "56", "notes": "公版模組三開頭的五點。我會強調第三點：AI 是鷹架。", "sup": ""}, {"n": "57", "notes": "AIPACK 就是 TPACK 把科技換成 AI。重點在交集：不是會用 AI 就好，要知道在這個單元、用什麼教法時，AI 放在哪裡。", "sup": ""}, {"n": "58", "notes": "選工具三問。第二問在臺北的答案：酷AI 用單一身分驗證，不用學生的個人帳號。", "sup": ""}, {"n": "59", "notes": "用公版的表 4-1 對照：通用型 AI 是使用者要什麼就給什麼；酷AI 從課綱單元出發，用單一身分驗證登入，老師看得到學生作答與課後分析。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">對照</span><span class=\"ev ev-講者整理\">講者整理</span></div>\n<h4>對照依據</h4><ul><li>表 4-1：指引第四章〈教育型 AI 與通用型 AI 比較表〉</li><li>酷AI 登入方式：臺北市校園單一身分驗證、教育雲端帳號（2026-09 實測）</li><li>A2 推薦名單：臺北酷課雲 115.10.16 起</li></ul><p class=\"sup-src\"></p></article>"}, {"n": "60", "notes": "燈號表可以直接貼在教室或作業單上。上午 Padlet 還有一份 AIPACK 整合版燈號檢核表，附學生 AI 學習承諾。", "sup": ""}, {"n": "61", "notes": "公版的學習外包風險表。和模組二的 THINK、HUMAN 是同一件事的教學版。", "sup": ""}, {"n": "62", "notes": "共備用過的兩條車道：Lane 1 控制型，課堂實作、口頭說明、不用 AI；Lane 2 開放型，可以用 AI，但要揭露怎麼和 AI 合作。", "sup": ""}, {"n": "63", "notes": "老師自己用 AI 備課的四階段：定錨、對話、轉化、落實。", "sup": ""}, {"n": "64", "notes": "四學是因材網的架構，酷AI 的上課模式也是同一個邏輯。", "sup": ""}, {"n": "65", "notes": "學生自學時 AI 助教產生個人強化練習；老師端課後分析、推薦評量、看學習診斷報表，再決定導學要補什麼。", "sup": ""}, {"n": "66", "notes": "公版用 e度的寫作精靈、文思精靈。重點不是工具，是 AI 出現在哪一步：課中「追問 AI 驗證同學說的對不對」是很好的設計。", "sup": ""}, {"n": "67", "notes": "這份示例最值得學的是老師的任務：巡視時觀察學生是不是只想要答案，鼓勵他們問更深入的問題。", "sup": ""}, {"n": "68", "notes": "酷AI 的學科例子：Scratch 作品 AI 即時批改、臺語 AI 語音練習、英語 AI 互動口說。", "sup": ""}, {"n": "69", "notes": "教案從 AI 數位教案示例資料庫挑。表格四欄：階段、教師任務、學生任務、AI 應用與提示語。", "sup": ""}, {"n": "70", "notes": "愛沙尼亞教育部 2025 年 2 月宣布 AI Leap，9 月起高中生與老師免費用 ChatGPT Edu。", "sup": ""}, {"n": "71", "notes": "上午講師問誰有付費 AI，我們這裡很多人舉手，但一線老師多半沒有。愛沙尼亞是國家買單；臺北是公共平臺，而且分享給離島與偏鄉縣市。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">新聞</span><span class=\"ev ev-官方資料\">官方資料</span></div>\n<h4>愛沙尼亞 AI Leap</h4><ul><li>2025-09-01 起，首年約 20,000 名 10–11 年級學生與 3,000 名教師</li><li>以 ChatGPT Edu 為基礎，教育部、大學與 OpenAI 合作調整</li></ul><p class=\"sup-src\"> <a href=\"https://hm.ee/en/news/estonia-announces-groundbreaking-national-initiative-ai-leap-programme-bring-ai-tools-all\" target=\"_blank\" rel=\"noopener\">原文</a></p></article>"}, {"n": "72", "notes": "三興國小研習完隔天，英文老師就自己做了單字複習 App，放上 Google Sites，在課堂用平板和大屏複習。這是我覺得研習最好的成果：老師明天就用得上。", "sup": ""}, {"n": "73", "notes": "用自我評估問卷收尾，再進回饋。", "sup": ""}, {"n": "74", "notes": "公版的 Check out。我最想聽的是第三題：明天第一個想試什麼。", "sup": ""}, {"n": "75", "notes": "總結一句：講指引時，少講理論、多給老師看得到的新聞和工具；在臺北，就用酷AI 當例子。謝謝大家。", "sup": ""}];
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0, tab='sup';
+const panel=document.getElementById('panel'), pbody=document.getElementById('pbody');
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('deck').style.transform=`scale(${s})`;}
+function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
+  history.replaceState(null,'','#p'+slides[cur].dataset.label);document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%';renderPanel();}
+function renderPanel(){const d=SIDE[cur];setTimeout(bindCopy,0);
+  document.querySelectorAll('#panel header [data-tab]').forEach(b=>b.classList.toggle('act',b.dataset.tab===tab));
+  if(tab==='sup') pbody.innerHTML=d.sup||'<p class="empty">這頁沒有補充資料。</p>';
+  else if(d.notes){pbody.innerHTML='<div class="notes"></div>';pbody.firstChild.textContent=d.notes;}
+  else pbody.innerHTML='<p class="empty">這頁沒有講稿。</p>';}
+document.querySelectorAll('.slide .copy').forEach(b=>b.onclick=ev=>{ev.stopPropagation();navigator.clipboard.writeText(b.nextElementSibling.textContent);b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500);});
+function bindCopy(){pbody.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(b.nextElementSibling.textContent);b.textContent='已複製';setTimeout(()=>b.textContent='複製',1500);});}
+function openPanel(t){if(panel.classList.contains('open')&&tab===t){panel.classList.remove('open');return;}tab=t;panel.classList.add('open');renderPanel();}
+document.querySelectorAll('#panel header [data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;renderPanel();});
+panel.querySelector('.x').onclick=()=>panel.classList.remove('open');
+document.querySelectorAll('.supbtn').forEach(b=>b.onclick=()=>{tab='sup';panel.classList.add('open');renderPanel();});
+const grid=document.getElementById('grid');
+grid.innerHTML=slides.map((s,k)=>{const t=(s.querySelector('h1,h2,.situation')||s).textContent.trim().slice(0,40);
+  return `<button data-k="${k}" class="${SIDE[k].sup?'has':''}"><b>${slides[k].dataset.label}</b>${t}</button>`}).join('');
+grid.onclick=e=>{const b=e.target.closest('button');if(b){show(+b.dataset.k);grid.classList.remove('open');}};
+function full(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+bPrev.onclick=()=>show(cur-1);bNext.onclick=()=>show(cur+1);bGrid.onclick=()=>grid.classList.toggle('open');
+bSup.onclick=()=>openPanel('sup');bNotes.onclick=()=>openPanel('notes');bFull.onclick=full;
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
+  const k=e.key;if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();show(cur+1);}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();show(cur-1);}
+  else if(k==='Home')show(0);else if(k==='End')show(slides.length-1);
+  else if(k==='o'||k==='O')grid.classList.toggle('open');else if(k==='s'||k==='S')openPanel('sup');
+  else if(k==='n'||k==='N')openPanel('notes');else if(k==='t'||k==='T')tp.classList.toggle('open');else if(k==='f'||k==='F')full();
+  else if(k==='Escape'){grid.classList.remove('open');panel.classList.remove('open');tp.classList.remove('open');up.classList.remove('open');}});
+let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(tx===null||panel.contains(e.target))return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null;});
+
+// ===== 倒數計時（以結束時刻計算，換頁、切換分頁都不影響） =====
+const tp=document.getElementById('timerPanel'), badge=document.getElementById('timerBadge'), tLeft=document.getElementById('tLeft'), tBar=document.getElementById('tBar'), glow=document.getElementById('edgeGlow'), up=document.getElementById('timesUp');
+let tEnd=0, tTotal=0, tRemainPaused=null, tTimer=null, lastSec=-1, actx=null;
+function ac(){if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();return actx;}
+function beep(f,dur,vol,type='sine',when=0){const c=ac(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0.0001,c.currentTime+when);g.gain.exponentialRampToValueAtTime(vol,c.currentTime+when+0.01);g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+when+dur);o.connect(g).connect(c.destination);o.start(c.currentTime+when);o.stop(c.currentTime+when+dur+0.05);}
+function tick(sec){if(!tTick.checked)return; if(sec<=10&&tWarnSnd.checked){beep(sec%2?880:1175,0.12,0.25,'triangle');}else{beep(sec%2?1000:800,0.04,0.08,'square');}}
+function warnMelody(){if(!tWarnSnd.checked)return;[659,784,880].forEach((f,i)=>beep(f,0.18,0.22,'triangle',i*0.16));}
+function finale(){[523,659,784,1047,784,1047].forEach((f,i)=>beep(f,0.28,0.3,'triangle',i*0.22));}
+const fmt=s=>{s=Math.max(0,Math.ceil(s));const m=Math.floor(s/60),x=s%60;return String(m).padStart(2,'0')+':'+String(x).padStart(2,'0');};
+function remain(){return tRemainPaused!==null?tRemainPaused:(tEnd-Date.now())/1000;}
+function paint(){const r=remain(),sec=Math.ceil(r);tLeft.textContent=fmt(r);tBar.style.width=(tTotal?Math.max(0,r/tTotal*100):0)+'%';
+  badge.classList.toggle('warn',sec<=60&&sec>10);badge.classList.toggle('danger',sec<=10&&sec>0);glow.classList.toggle('on',sec<=10&&sec>0&&tRemainPaused===null);
+  badge.classList.toggle('paused',tRemainPaused!==null);
+  if(tRemainPaused===null&&sec!==lastSec){if(lastSec>0){ if(sec===10)warnMelody(); if(sec>0)tick(sec);} lastSec=sec;}
+  if(tRemainPaused===null&&r<=0){stopTimer(false);up.classList.add('open');finale();}}
+function startTimer(total){ac();tTotal=total;tEnd=Date.now()+total*1000;tRemainPaused=null;lastSec=Math.ceil(total);badge.classList.add('show');clearInterval(tTimer);tTimer=setInterval(paint,100);paint();tp.classList.remove('open');}
+function stopTimer(hide=true){clearInterval(tTimer);tTimer=null;glow.classList.remove('on');badge.classList.remove('warn','danger');if(hide){badge.classList.remove('show');tRemainPaused=null;}else{tLeft.textContent='00:00';tBar.style.width='0%';}}
+tStart.onclick=()=>{const t=(+tMin.value||0)*60+(+tSec.value||0);if(t>0)startTimer(t);};
+tp.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{const t=+b.dataset.p;tMin.value=Math.floor(t/60);tSec.value=t%60;startTimer(t);});
+tPause.onclick=()=>{if(!tTimer&&tRemainPaused===null)return;if(tRemainPaused===null){tRemainPaused=remain();}else{tEnd=Date.now()+tRemainPaused*1000;tRemainPaused=null;lastSec=Math.ceil(remain());}paint();};
+tAdd.onclick=()=>{if(tRemainPaused!==null){tRemainPaused+=60;}else if(tTimer){tEnd+=60000;}else return;tTotal+=60;lastSec=Math.ceil(remain());paint();};
+tReset.onclick=()=>{stopTimer(true);tp.classList.remove('open');};
+badge.onclick=()=>tp.classList.toggle('open');
+up.onclick=()=>{up.classList.remove('open');badge.classList.remove('show');};
+bTimer.onclick=()=>tp.classList.toggle('open');
+tp.addEventListener('keydown',e=>e.stopPropagation());
+
+// 導覽：卡片與左上角按鈕跳到各模組第一頁；H 導覽頁、1/2/3 模組
+function goSec(g){const k=g==='nav'?slides.findIndex(s=>s.classList.contains('t-nav')):slides.findIndex(s=>s.dataset.sec===g);if(k>=0)show(k);else location.href='index.html?go='+g;}
+document.addEventListener('click',e=>{const h=e.target.closest('[data-href]');if(h){e.stopPropagation();location.href=h.dataset.href;}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){e.stopPropagation();goSec(b.dataset.go);}});
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;const k=e.key;
+  if(k==='h'||k==='H')goSec('nav');else if(k==='1')goSec('m1');else if(k==='2')goSec('m2');else if(k==='3')goSec('m3');});
+const _show=show;show=function(i){const d=document.getElementById('deck');d.classList.remove('flash');void d.offsetWidth;d.classList.add('flash');_show(i);const s=slides[cur].dataset.sec;document.querySelectorAll('#secchip button').forEach(b=>b.classList.toggle('act',b.dataset.go===s));};
+document.querySelectorAll('.slide').forEach(sl=>{const k=document.createElement('img');k.className='kscene';k.src='assets/shots/kuai_scene.png';k.alt='';sl.appendChild(k);
+  if(/t-(cover|closing)/.test(sl.className)){const l=document.createElement('img');l.className='klogo';l.src='assets/shots/kuai_logo.png';l.alt='酷AI系統';sl.appendChild(l);}});
+
+// 工具列：滑鼠移動時短暫顯示，2 秒不動就隱藏
+(function(){let tm;const b=document.body;function wake(){b.classList.add('uiwake');b.classList.remove('uiidle');clearTimeout(tm);tm=setTimeout(()=>{b.classList.remove('uiwake');b.classList.add('uiidle');},2000);}
+addEventListener('mousemove',wake,{passive:true});addEventListener('touchstart',wake,{passive:true});})();
+document.querySelectorAll('.slide.t-divider').forEach(sl=>{const n={m1:'01',m2:'02',m3:'03'}[sl.dataset.sec];if(n){const d=document.createElement('div');d.className='dvno';d.textContent=n;sl.querySelector('.inner').prepend(d);}
+  const c=document.createElement('div');c.className='cooc-chip';c.innerHTML='<img src="assets/shots/kuai_logo.png" alt="酷AI">臺北酷課雲 × 酷AI';sl.appendChild(c);});
+addEventListener('resize',fit);fit();
+{const g=new URLSearchParams(location.search).get('go');if(g)setTimeout(()=>goSec(g),0);}
+if(/g3\.html/.test(location.pathname))document.querySelectorAll('#secchip .g3btn').forEach(b=>b.classList.add('act'));
+const m=decodeURIComponent(location.hash).match(/^#p(.+)$/);const k0=m?slides.findIndex(s=>s.dataset.label===m[1]):0;show(k0<0?0:k0);
+</script>
+<div id="zoom"><img alt=""></div>
+<script>
+// 圖片點一下放大；再點一下或按 Esc 關閉
+(function(){const z=document.getElementById('zoom'),zi=z.querySelector('img');
+document.addEventListener('click',e=>{const t=e.target;
+  if(z.classList.contains('on')){z.classList.remove('on');return;}
+  if(t.tagName==='IMG'&&t.closest('.slide .inner')&&!t.closest('a')&&!/cover_bg/.test(t.src)){zi.src=t.src;z.classList.add('on');}});
+addEventListener('keydown',e=>{if(z.classList.contains('on')){e.stopImmediatePropagation();e.preventDefault();z.classList.remove('on');}},true);
+})();
+</script>
+<script src="assets/vendor/three.min.js"></script>
+<script>
+// three.js 視覺層（載入失敗就不顯示，不影響簡報）
+// 封面／章節／結尾：臺北天際線＋101＋往上飄的酷AI 對話泡泡；內容頁：右上角旋轉的小 101
+(function(){if(!window.THREE)return;
+const cv=document.createElement('canvas');
+cv.style.cssText='position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none;mix-blend-mode:multiply;z-index:0';
+let R;try{R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});}catch(e){return;}
+document.documentElement.classList.add('three');
+R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(1920,1080,false);
+const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(42,1920/1080,1,3000);cam.position.z=900;
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');
+x.beginPath();x.arc(32,32,26,0,7);x.fillStyle='#fff';x.fill();const tex=new THREE.CanvasTexture(c);
+const V=(a,b,c)=>new THREE.Vector3(a,b,c);
+// 每個群組記下自己的材質，方便整組淡入淡出
+function layer(){const g=new THREE.Group();g.mats=[];scene.add(g);
+  g.mat=(m,o)=>{m.transparent=true;m.base=o;m.opacity=0;g.mats.push(m);return m;};
+  g.lines=(arr,color,o)=>{const b=new THREE.BufferGeometry().setFromPoints(arr);const l=new THREE.LineSegments(b,g.mat(new THREE.LineBasicMaterial({color}),o));g.add(l);return l;};
+  g.dots=(arr,color,size,o)=>{const b=new THREE.BufferGeometry().setFromPoints(arr);const m=new THREE.Points(b,g.mat(new THREE.PointsMaterial({color,size,map:tex,alphaTest:.05}),o));g.add(m);return m;};
+  g.a=0;g.fade=(to,k)=>{g.a+=(to-g.a)*k;g.visible=g.a>.01;g.mats.forEach(m=>m.opacity=m.base*g.a);};return g;}
+// 沿線跑的訊號
+function pulses(g,edges,n,color,size){const S=Array.from({length:n},()=>({e:edges[Math.floor(rnd()*edges.length)],t:rnd(),v:.25+rnd()*.5}));
+  const pts=S.map(()=>V(0,0,0)),m=g.dots(pts,color,size,1);
+  return (dt,k)=>{S.forEach((s,i)=>{s.t+=s.v*dt*k;if(s.t>1){s.t=0;s.e=edges[Math.floor(Math.random()*edges.length)];}pts[i].lerpVectors(s.e[0],s.e[1],s.t);});m.geometry.setFromPoints(pts);};}
+
+// ── 1. 節點網路（中央留空給標題）
+const net=layer(),P=[];
+while(P.length<130){const a=(rnd()-.5)*1900,b=(rnd()-.5)*1000,d=(rnd()-.5)*500;if(Math.abs(a)<520&&Math.abs(b)<230)continue;P.push(V(a,b,d));}
+const E=[];P.forEach((a,i)=>{P.map((b,j)=>[a.distanceTo(b),j]).sort((u,v)=>u[0]-v[0]).slice(1,4).forEach(([d,j])=>{if(d<330&&i<j)E.push([P[i],P[j]]);});});
+net.lines(E.flat(),0x6FA8DC,.6);net.dots(P,0x3D7DC8,16,.75);
+const netPulse=pulses(net,E,22,0xF2994A,20);
+
+// ── 2. 臺北 101（低多邊形線框）：封面／章節是天際線大圖，內容頁是右上角小模型
+function make101(g,s,edgeCol){
+  // 臺北 101：玻璃藍綠、有光影；兩個面受光不同，看得出立體
+  const M=(c)=>g.mat(new THREE.MeshLambertMaterial({color:c,flatShading:true}),1);
+  const glass=M(0x9FD3CF),glass2=M(0x7FBFC0),podium=M(0xC9DCE8),cap=M(0xB7D8D4),
+        edge=g.mat(new THREE.LineBasicMaterial({color:edgeCol}),.55),band=g.mat(new THREE.LineBasicMaterial({color:0xFFFFFF}),.7);
+  const tw=new THREE.Group();g.add(tw);let y=0;
+  const put=(rt,rb,h,m,bands)=>{const geo=new THREE.CylinderGeometry(rt*s,rb*s,h*s,4,1);const me=new THREE.Mesh(geo,m);me.position.y=y+h*s/2;me.rotation.y=Math.PI/4;tw.add(me);
+    const l=new THREE.LineSegments(new THREE.EdgesGeometry(geo),edge);l.position.copy(me.position);l.rotation.copy(me.rotation);tw.add(l);
+    for(let k=1;k<=(bands||0);k++){const f=k/(bands+1),r=(rb+(rt-rb)*f)*s+.3,yy=y+h*s*f,P=[];             // 樓層窗帶
+      for(let q=0;q<4;q++){const a=q*Math.PI/2,b=a+Math.PI/2;P.push(new THREE.Vector3(Math.cos(a)*r,yy,Math.sin(a)*r),new THREE.Vector3(Math.cos(b)*r,yy,Math.sin(b)*r));}
+      tw.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(P),band));}
+    y+=h*s;};
+  put(58,62,26,podium,1);                       // 裙樓
+  put(27,37,118,glass2,5);                      // 基座：往上收
+  put(31,31,4,cap);
+  for(let i=0;i<8;i++){put(31,24,44,i%2?glass:glass2,3);put(32,32,3,cap);}   // 八節「花開富貴」：每節往上外擴
+  put(17,23,22,cap,1); put(9,12,22,glass,1);    // 塔頂
+  put(.6,2.6,96,cap);                           // 塔尖
+  const tip=new THREE.Sprite(g.mat(new THREE.SpriteMaterial({map:tex,color:0xF2994A}),.9));tip.scale.set(18*s,18*s,1);tip.position.y=y;tw.add(tip);
+  tw.top=y;return tw;}
+// 光源（只影響有光照材質的 101）
+scene.add(new THREE.AmbientLight(0xffffff,.78));const sun=new THREE.DirectionalLight(0xffffff,.65);sun.position.set(-400,600,500);scene.add(sun);
+// 酷AI 對話泡泡貼圖
+function bubbleTex(txt,bg){const c=document.createElement('canvas');c.width=256;c.height=160;const x=c.getContext('2d');
+  x.fillStyle=bg;x.beginPath();x.roundRect(8,8,240,110,50);x.fill();x.beginPath();x.moveTo(70,112);x.lineTo(54,150);x.lineTo(110,114);x.fill();
+  x.fillStyle='#fff';x.font='900 52px "Noto Sans TC",sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText(txt,128,64);return new THREE.CanvasTexture(c);}
+const BUB=[['酷AI',0xF0A23B,'#F0A23B'],['AI',0x3B82C4,'#3B82C4'],['?',0x5AA9E6,'#5AA9E6'],['ABC',0xF0A23B,'#F0A23B'],['臺北',0x1E3A6E,'#1E3A6E']].map(b=>bubbleTex(b[0],b[2]));
+
+// 2a. 天際線（封面／章節／結尾）
+const city=layer();city.position.set(0,-345,0);
+const T101=make101(city,.72,0x1F3A6E);T101.position.set(-470,0,40);T101.rotation.y=.42;
+const bx=[],bedge=city.mat(new THREE.LineBasicMaterial({color:0x6FA8DC}),.75),bface=city.mat(new THREE.MeshBasicMaterial({color:0xE7F1FB}),1),farEdge=city.mat(new THREE.LineBasicMaterial({color:0xB9D3EA}),.5),farFace=city.mat(new THREE.MeshBasicMaterial({color:0xF5F9FD}),1);
+for(let i=0;i<34;i++){const w=30+rnd()*60,h=40+rnd()*170,d=30+rnd()*50,x=-760+i*46+rnd()*20;if(Math.abs(x+470)<70)continue;
+  const far=i%2===0,geo=new THREE.BoxGeometry(w,h,d),m=new THREE.Mesh(geo,far?farFace:bface);m.position.set(x,h/2,far?-390:-120);city.add(m);
+  const l=new THREE.LineSegments(new THREE.EdgesGeometry(geo),far?farEdge:bedge);l.position.copy(m.position);city.add(l);bx.push(m.position.clone().add(V(0,h/2,0)));}
+const bubs=Array.from({length:9},(_,i)=>{const sp=new THREE.Sprite(city.mat(new THREE.SpriteMaterial({map:BUB[i%BUB.length]}),.95));
+  sp.scale.set(70,44,1);sp.u={o:bx[Math.floor(rnd()*bx.length)]||V(0,0,0),t:rnd(),v:.05+rnd()*.06};city.add(sp);return sp;});
+const tip=V(-470,T101.top,40),SK=bx.map(p=>[tip,p]).filter((_,i)=>i%3===0);
+city.lines(SK.flat(),0xF2C48A,.35);const skyPulse=pulses(city,SK,10,0xF2994A,16);
+
+// 2b. 右上角小 101（內容頁）＋繞行的酷AI 泡泡
+const hub=layer();hub.position.set(665,235,0);
+const M101=make101(hub,.20,0x1F3A6E);M101.position.y=0;
+const ring=[];for(let i=0;i<=64;i++){const a=i/64*Math.PI*2;ring.push(V(Math.cos(a)*70,0,Math.sin(a)*70));}
+const rg=[];for(let i=0;i<64;i++)rg.push(ring[i],ring[i+1]);const rl=hub.lines(rg,0xF0A23B,.5);rl.position.y=95;
+const hb=new THREE.Sprite(hub.mat(new THREE.SpriteMaterial({map:BUB[0]}),1));hb.scale.set(38,24,1);hub.add(hb);
+const hubPulse=()=>{};
+const motion=matchMedia('(prefers-reduced-motion: reduce)');let still=motion.matches;motion.addEventListener('change',e=>{still=e.matches;});
+let host=null,last=0,full=true,boost=0,pose=0,idx=0;
+function frame(t){requestAnimationFrame(frame);
+  const on=document.querySelector('.slide.on');
+  if(on!==host){host=on;if(!on)return;if(on.classList.contains("t-cover"))on.appendChild(cv);else on.insertBefore(cv,on.firstChild);full=/t-(cover|divider|closing)/.test(on.className);
+    idx=[...on.parentNode.children].indexOf(on);pose=((idx%5)-2)*.13;boost=1;}
+  if(!host)return;const dt=Math.min((t-last)/1000,.05);last=t;const k=still?1:Math.min(1,dt*5);
+  net.fade(full?.55:0,k);city.fade(full?1:0,k);hub.fade(0,k);boost*=1-Math.min(1,dt*1.6);
+  if(!still){net.rotation.y+=(pose+Math.sin(t/9000)*.2-net.rotation.y)*Math.min(1,dt*2.5);net.rotation.x=Math.cos(t/11000)*.1;
+    M101.rotation.y=t/4000;const a=t/1500;hb.position.set(Math.cos(a)*70,95+Math.sin(t/700)*6,Math.sin(a)*70);
+    city.rotation.y=Math.sin(t/12000)*.06;bubs.forEach(b=>{b.u.t+=b.u.v*dt;if(b.u.t>1){b.u.t=0;b.u.o=bx[Math.floor(Math.random()*bx.length)];}b.position.set(b.u.o.x+Math.sin(t/1800+b.u.t*6)*12,b.u.o.y+30+b.u.t*260,b.u.o.z);const scale=1+.07*Math.sin(t/1200+b.u.t*6);b.scale.set(70*scale,44*scale,1);b.material.opacity=.95*Math.sin(b.u.t*Math.PI)*city.a;});}
+  if(still){M101.rotation.y=0;hb.position.set(55,80,0);city.rotation.y=0;net.rotation.set(0,0,0);bubs.forEach(b=>{b.position.set(b.u.o.x,b.u.o.y+30+b.u.t*260,b.u.o.z);b.scale.set(70,44,1);b.material.opacity=.8*city.a;});}
+  const sp=still?0:1+boost*3;if(net.visible)netPulse(dt,sp);if(city.visible)skyPulse(dt,sp);
+  R.render(scene,cam);}
+requestAnimationFrame(frame);})();
+</script>
+<script>
+// 內容頁左下角：臺北市數位學習中心 × 酷AI 標籤
+(function(){const bar=document.createElement('div');bar.id='tpbar';const BT="臺北市數位學習中心";bar.innerHTML='<img src="assets/shots/kuai_logo.png" alt="酷AI系統">'+(BT?'<i>'+BT+'</i>':'');
+let host=null;(function tick(){requestAnimationFrame(tick);const on=document.querySelector('.slide.on');
+ if(on!==host){host=on;if(on&&!/t-(cover|closing)/.test(on.className))on.appendChild(bar);else bar.remove();}})();})();
+</script>
+</body>
+</html>

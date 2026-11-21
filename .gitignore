@@ -1,0 +1,4 @@
+__pycache__/
+.codex_*
+CODEX_TASK*.md
+art/
