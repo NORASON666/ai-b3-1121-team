@@ -3,6 +3,9 @@
 # 插頁從既有內容檔挑（依 kicker＋title 片段），A、B 兩套傳入不同的來源 S，案例就會不同
 
 PAGES = {"m1": 26, "m2": 38, "m3": 62}
+import json as _j, os as _o
+_p = _o.path.join(_o.path.dirname(__file__), "gb2_pages.json")
+GB2KEYS = set(_j.load(open(_p))) if _o.path.exists(_p) else set()
 
 # 公版第 n 頁之後要插哪些臺北補充頁（值是「標題片段」；找不到就略過，A／B 兩套各自有的才會出現）
 INSERT = {
@@ -98,7 +101,7 @@ def build(src_slides, cover_who):
           "notes": "公版簡報的順序與排版不改；臺北補充頁插在相關的公版頁後面。"}]
     for m, n in PAGES.items():
         for p in range(1, n + 1):
-            d = {"t": "gb", "img": f"assets/gb/{m}-{p}.jpg", "gbno": f"公版 模組{'一二三'[int(m[1]) - 1]} p.{p}", "notes": ""}
+            d = {"t": "gb2" if f"{m}-{p}" in GB2KEYS else "gb", "key": f"{m}-{p}", "img": f"assets/gb/{m}-{p}.jpg", "gbno": f"公版 模組{'一二三'[int(m[1]) - 1]} p.{p}", "notes": ""}
             if p == 1:
                 d["sec"] = m
             S.append(d)

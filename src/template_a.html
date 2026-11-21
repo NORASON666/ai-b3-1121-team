@@ -340,42 +340,65 @@ body.uiidle #bar,body.uiidle #secchip{opacity:0;pointer-events:none}
 body.uiidle #secchip:focus-within,body.uiidle #bar:focus-within{opacity:1;pointer-events:auto}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-/* 臺北夜景：霓虹與玻璃介面 */
-.slide,.slide[data-sec]{--navy:#e8fffc;--ink:#e2f5f5;--blue:#5cf2e0;--sky:#2bb5a8;--pale:#143a48;--orange:#ff65c4;--line:#376b78;--muted:#b2d0d4;--paper:#07121f;color:var(--ink);background:radial-gradient(ellipse at 80% 0%,#123346 0,transparent 50%),linear-gradient(145deg,#0a1b2c,#050912)!important}
+/* 臺北晨光：淺色玻璃與柔和青綠 */
+.slide,.slide[data-sec]{--navy:#16343B;--ink:#16343B;--blue:#16796F;--sky:#5CCFC2;--pale:#DDF5F1;--orange:#D47A32;--line:#C8E7E2;--muted:#526F73;--paper:#F4FBFA;color:var(--ink);background:radial-gradient(ellipse at 85% 8%,#DDF5F5 0,transparent 45%),linear-gradient(145deg,#fff,#F4FBFA 70%,#E7F7F5)!important}
 .slide:not(.t-cover):not(.t-closing):not(.t-divider)::after{display:none}
-.slide::before,.slide[data-sec]::before{height:5px;background:linear-gradient(90deg,#2bb5a8,#5cf2e0,#f35fb8)}
-.title,.dv-title,.cover h1{color:#f0fffd;text-shadow:0 0 28px #2bb5a899}
-.title span,.slide[data-sec] .title span{background:none;border-bottom:4px solid #5cf2e0;border-radius:0}
-.slide .kicker,.slide[data-sec] .kicker{background:#165a60;color:#fff}
-.cover{background:radial-gradient(ellipse at 50% 40%,#123044aa,transparent 72%)}
-.cover-text{background:rgba(5,18,30,.78);border:2px solid #5cf2e077;box-shadow:0 0 55px #2bb5a83d;backdrop-filter:blur(14px)}
-.cover .org,.cover .hand,.cover .who b{color:#5cf2e0}.cover .meta,.cover .who{color:#e2f5f5}
-mark{background:linear-gradient(transparent 65%,#185d65 65%)}
-.card,.news,.navcard,.steps li,.ni-steps li{background:rgba(19,47,61,.8)!important;border:2px solid #57d8cb88!important;border-radius:16px!important;box-shadow:0 0 22px #2bb5a82b!important;color:#e2f5f5;backdrop-filter:blur(12px)}
-.card h3,.navcard .nv-t,.situation,.quote,.dv-sub{color:#effffd}
-.card p,.news p,.nv-d,.nv-m{color:#d5eceb}
-.foot{background:#143a48;color:#f0fffd;border-color:#ff65c4}.rel .tag{background:#16655f}
-.tbl{background:#102b38;border-color:#4fb6ae}.tbl th,.slide[data-sec] .tbl th:nth-child(3){background:#175d60;color:white}.tbl td,.slide[data-sec] .tbl td:nth-child(3){background:#102b38;color:#e2f5f5;border-color:#376b78}.tbl td:first-child{color:#5cf2e0}
-.prompt.code pre{background:#102b38;color:#e2f5f5;border-color:#4fb6ae;box-shadow:0 0 22px #2bb5a82b}
-.slide.t-divider .dvno{color:#28606a;opacity:.35}.wa-art img[src*="illus/"]{mix-blend-mode:normal}
-#tpbar i{background:#123a45;color:#d8fffa}.cooc-chip,.slide[data-sec] .cooc-chip{background:#126d67}
+.slide::before,.slide[data-sec]::before{height:5px;background:linear-gradient(90deg,#2BB5A8,#A1E7DF 70%,#F4C491)}
+.title,.dv-title,.cover h1{color:#16343B;text-shadow:none}
+.title span,.slide[data-sec] .title span{background:linear-gradient(transparent 62%,#DDF5F1 62%);border-bottom:4px solid #5CCFC2;border-radius:0}
+.slide .kicker,.slide[data-sec] .kicker{background:#D7F3EF;color:#16343B}
+.cover{background:radial-gradient(ellipse at 50% 40%,rgba(255,255,255,.5),transparent 72%)}
+.cover-text{background:rgba(255,255,255,.88);border:2px solid #fff;box-shadow:0 24px 70px rgba(30,110,105,.14);backdrop-filter:blur(12px)}
+.cover .org,.cover .hand,.cover .who b{color:#16796F}.cover .meta,.cover .who{color:#16343B}
+mark{background:linear-gradient(transparent 65%,#DDF5F1 65%)}
+.card,.news,.navcard,.steps li,.ni-steps li{background:rgba(255,255,255,.92)!important;border:2px solid #C8E7E2!important;border-radius:28px!important;box-shadow:0 14px 38px rgba(38,107,102,.10)!important;color:#16343B}
+.card h3,.navcard .nv-t,.situation,.quote,.dv-sub{color:#16343B}
+.card p,.news p,.nv-d,.nv-m{color:#36575C}
+.foot{background:#FFF5E9;color:#16343B;border-color:#E8A362}.rel .tag{background:#D7F3EF;color:#16343B}
+.tbl{background:#fff;border-color:#C8E7E2;box-shadow:0 14px 38px rgba(38,107,102,.10)}
+.tbl th,.slide[data-sec] .tbl th:nth-child(3){background:#BCECE5;color:#16343B}
+.tbl td,.slide[data-sec] .tbl td:nth-child(3){background:#fff;color:#16343B;border-color:#DDEFEA}.tbl tbody tr:nth-child(even) td:not(:nth-child(3)){background:#F4FBFA}.tbl td:first-child{color:#16343B}
+.prompt.code pre{background:#fff;color:#16343B;border-color:#C8E7E2;box-shadow:0 14px 38px rgba(38,107,102,.10)}
+.shot img,.vid video,.shot.video iframe,.ni-img img,.wa-art img{border-color:#C8E7E2;box-shadow:0 14px 38px rgba(38,107,102,.12)}
+.slide.t-divider .dvno{color:#C7EEE8;opacity:.7}.wa-art img[src*="illus/"]{mix-blend-mode:normal;box-shadow:none}
+#tpbar i{background:#fff;color:#136B63}.cooc-chip,.slide[data-sec] .cooc-chip{background:linear-gradient(90deg,#2BB5A8,#5CCFC2);color:#16343B}
 @media (prefers-reduced-motion:no-preference){
-.slide.on .inner{animation:holo .55s ease-out both}.slide.on :is(.cards>*,.newsgrid>*,.navgrid>*,.steps>li,.bul>li,.ni-steps>li,.tbl tbody tr,.st-text>p,.shot>img,.shot>figure,.wa-art,.ni-img,.illus){animation:holo .55s ease-out both}
-.slide.on .title span,.slide.on .kicker,.slide.on .foot,.slide.on .stat .big,.slide.on.t-divider .dv-title,.slide.on .cover h1,.slide.on .quote{animation:holo .5s ease-out both}
-@keyframes holo{0%{opacity:0;transform:translateY(25px);filter:brightness(2)}35%{opacity:.8;transform:translate(4px,12px)}45%{transform:translate(-3px,9px)}100%{opacity:1;transform:none;filter:none}}
-#deck.flash::after{background:repeating-linear-gradient(0deg,transparent 0 7px,#5cf2e0 8px 9px);animation:scan .5s ease-out both}@keyframes scan{from{opacity:.32;clip-path:inset(0 0 80%)}to{opacity:0;clip-path:inset(80% 0 0)}}
+.slide.on:not(.t-gb2) .inner{animation:morning .6s cubic-bezier(.2,1.15,.3,1) both}
+.slide.on :is(.cards>*,.newsgrid>*,.navgrid>*,.steps>li,.bul>li,.ni-steps>li,.tbl tbody tr,.st-text>p,.shot>img,.shot>figure,.wa-art,.ni-img,.illus){animation:morning .55s cubic-bezier(.2,1.15,.3,1) both}
+.slide.on .title span,.slide.on .kicker,.slide.on .foot,.slide.on .stat .big,.slide.on.t-divider .dv-title,.slide.on .cover h1,.slide.on .quote{animation:morning .6s cubic-bezier(.2,1.15,.3,1) both}
+@keyframes morning{0%{opacity:0;transform:translateY(32px) scale(.97)}100%{opacity:1;transform:none}}
+#deck.flash::after{background:#fff;animation:flash2 .3s ease-out}
 }
 
 /* 公版整頁圖＋臺北補充標籤 */
-.slide.t-gb{background:#fff!important;background-image:none!important}
-.slide.t-gb::before,.slide.t-gb::after{display:none!important}
+.slide.t-gb,.slide.t-gb2{background:#fff!important;background-image:none!important}
+.slide.t-gb::before,.slide.t-gb::after,.slide.t-gb2::before,.slide.t-gb2::after{display:none!important}
 .slide.t-gb .inner{inset:0!important;animation:none}
+.slide.t-gb2 .inner{animation:none!important}
+.slide.t-gb2 canvas{display:none}
 .gbfull{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#fff}
 .gbfull img{width:100%;height:100%;object-fit:contain}
-.slide.t-gb .kscene,.slide.t-gb #tpbar,.slide.t-gb .pno{display:none!important}
+.slide.t-gb .kscene,.slide.t-gb #tpbar,.slide.t-gb .pno,.slide.t-gb2 .kscene,.slide.t-gb2 #tpbar{display:none!important}
 .gbno{position:absolute;right:14px;bottom:8px;font:500 15px "Noto Sans TC";color:#888;background:rgba(255,255,255,.75);padding:2px 10px;border-radius:8px;z-index:3}
 .tpbadge{position:absolute;right:230px;top:-46px;z-index:5;font:900 26px "Noto Sans TC";color:#fff;background:linear-gradient(90deg,#2BB5A8,#F0A23B);padding:6px 22px;border-radius:0 0 14px 14px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
 .nw-k b{background:#2BB5A8!important;color:#04121c!important}
+/* 公版重建頁 */
+.slide.t-gb2{background:#fff!important;background-image:none!important}
+.slide.t-gb2::before,.slide.t-gb2::after{display:none!important}
+.slide.t-gb2 .inner{inset:0!important;animation:none!important}
+.slide.t-gb2 .kscene,.slide.t-gb2 #tpbar,.slide.t-gb2 .pno{display:none!important}
+.gb2{position:absolute;left:0;top:0;width:1920px;transform-origin:top left;overflow:hidden}
+.gbbg{position:absolute;left:0;top:0;width:100%;height:100%}
+.gbimg{position:absolute;object-fit:fill}
+.gbt{position:absolute;white-space:nowrap;font-family:"Noto Sans TC",sans-serif;letter-spacing:0}
+@media (prefers-reduced-motion:no-preference){
+.slide.on .gbimg:not(.gbfullimg){animation:gbpop .55s cubic-bezier(.3,1.5,.5,1) both}
+.slide.on .gbt{animation:gbrise .45s cubic-bezier(.2,1.2,.4,1) both}
+.slide.on .gbfullimg,.slide.on .gbbg{animation:gbfade .5s ease-out both}
+@keyframes gbpop{0%{opacity:0;transform:scale(.6) translateY(30px)}100%{opacity:1;transform:none}}
+@keyframes gbrise{0%{opacity:0;transform:translateY(22px)}100%{opacity:1;transform:none}}
+@keyframes gbfade{0%{opacity:0;transform:scale(1.04)}100%{opacity:1;transform:none}}
+}
 </style>
 </head>
 <body>
@@ -526,14 +549,14 @@ const net=layer(),P=[];
 while(P.length<130){const a=(rnd()-.5)*1900,b=(rnd()-.5)*1000,d=(rnd()-.5)*500;if(Math.abs(a)<520&&Math.abs(b)<230)continue;P.push(V(a,b,d));}
 const E=[];P.forEach((a,i)=>{P.map((b,j)=>[a.distanceTo(b),j]).sort((u,v)=>u[0]-v[0]).slice(1,4).forEach(([d,j])=>{if(d<330&&i<j)E.push([P[i],P[j]]);});});
 net.lines(E.flat(),0x2BB5A8,.6);net.dots(P,0x3D7DC8,16,.75);
-const netPulse=pulses(net,E,22,0xFF65C4,20);
+const netPulse=pulses(net,E,22,0xF0B078,20);
 
 // ── 2. 臺北 101（低多邊形線框）：封面／章節是天際線大圖，內容頁是右上角小模型
 function make101(g,s,edgeCol){
   // 臺北 101：玻璃藍綠、有光影；兩個面受光不同，看得出立體
   const M=(c)=>g.mat(new THREE.MeshLambertMaterial({color:c,flatShading:true}),1);
-  const glass=M(0x125965),glass2=M(0x103a50),podium=M(0x162b42),cap=M(0x247f85),
-        edge=g.mat(new THREE.LineBasicMaterial({color:edgeCol}),.55),band=g.mat(new THREE.LineBasicMaterial({color:0x5CF2E0}),.7);
+  const glass=M(0x5CCFC2),glass2=M(0x3CB2AA),podium=M(0xA9E3DF),cap=M(0x75D6CC),
+        edge=g.mat(new THREE.LineBasicMaterial({color:edgeCol}),.55),band=g.mat(new THREE.LineBasicMaterial({color:0xFFFFFF}),.7);
   const tw=new THREE.Group();g.add(tw);let y=0;
   const put=(rt,rb,h,m,bands)=>{const geo=new THREE.CylinderGeometry(rt*s,rb*s,h*s,4,1);const me=new THREE.Mesh(geo,m);me.position.y=y+h*s/2;me.rotation.y=Math.PI/4;tw.add(me);
     const l=new THREE.LineSegments(new THREE.EdgesGeometry(geo),edge);l.position.copy(me.position);l.rotation.copy(me.rotation);tw.add(l);
@@ -547,7 +570,7 @@ function make101(g,s,edgeCol){
   for(let i=0;i<8;i++){put(31,24,44,i%2?glass:glass2,3);put(32,32,3,cap);}   // 八節「花開富貴」：每節往上外擴
   put(17,23,22,cap,1); put(9,12,22,glass,1);    // 塔頂
   put(.6,2.6,96,cap);                           // 塔尖
-  const tip=new THREE.Sprite(g.mat(new THREE.SpriteMaterial({map:tex,color:0xFF65C4}),.9));tip.scale.set(18*s,18*s,1);tip.position.y=y;tw.add(tip);tw.beacon=tip;
+  const tip=new THREE.Sprite(g.mat(new THREE.SpriteMaterial({map:tex,color:0xF0B078}),.9));tip.scale.set(18*s,18*s,1);tip.position.y=y;tw.add(tip);tw.beacon=tip;
   tw.top=y;return tw;}
 // 光源（只影響有光照材質的 101）
 scene.add(new THREE.AmbientLight(0xffffff,.78));const sun=new THREE.DirectionalLight(0xffffff,.65);sun.position.set(-400,600,500);scene.add(sun);
@@ -559,19 +582,19 @@ const BUB=[['酷AI',0xF0A23B,'#F0A23B'],['AI',0x3B82C4,'#3B82C4'],['?',0x5AA9E6,
 
 // 2a. 天際線（封面／章節／結尾）
 const city=layer();city.position.set(0,-345,0);
-const T101=make101(city,.72,0x1F3A6E);T101.position.set(-470,0,40);T101.rotation.y=.42;
-const bx=[],bedge=city.mat(new THREE.LineBasicMaterial({color:0x2BB5A8}),.75),bface=city.mat(new THREE.MeshBasicMaterial({color:0x102b40}),1),farEdge=city.mat(new THREE.LineBasicMaterial({color:0xB9D3EA}),.5),farFace=city.mat(new THREE.MeshBasicMaterial({color:0x081929}),1);
+const T101=make101(city,.72,0x499F9B);T101.position.set(-470,0,40);T101.rotation.y=.42;
+const bx=[],bedge=city.mat(new THREE.LineBasicMaterial({color:0x2BB5A8}),.75),bface=city.mat(new THREE.MeshBasicMaterial({color:0xB5E4E0}),1),farEdge=city.mat(new THREE.LineBasicMaterial({color:0xB9D3EA}),.5),farFace=city.mat(new THREE.MeshBasicMaterial({color:0xD9F0ED}),1);
 for(let i=0;i<34;i++){const w=30+rnd()*60,h=40+rnd()*170,d=30+rnd()*50,x=-760+i*46+rnd()*20;if(Math.abs(x+470)<70)continue;
   const far=i%2===0,geo=new THREE.BoxGeometry(w,h,d),m=new THREE.Mesh(geo,far?farFace:bface);m.position.set(x,h/2,far?-390:-120);city.add(m);
   const l=new THREE.LineSegments(new THREE.EdgesGeometry(geo),far?farEdge:bedge);l.position.copy(m.position);city.add(l);bx.push(m.position.clone().add(V(0,h/2,0)));}
 const bubs=Array.from({length:9},(_,i)=>{const sp=new THREE.Sprite(city.mat(new THREE.SpriteMaterial({map:BUB[i%BUB.length]}),.95));
   sp.scale.set(70,44,1);sp.u={o:bx[Math.floor(rnd()*bx.length)]||V(0,0,0),t:rnd(),v:.05+rnd()*.06};city.add(sp);return sp;});
 const tip=V(-470,T101.top,40),SK=bx.map(p=>[tip,p]).filter((_,i)=>i%3===0);
-city.lines(SK.flat(),0xF2C48A,.35);const skyPulse=pulses(city,SK,10,0xFF65C4,16);
+city.lines(SK.flat(),0xF2C48A,.35);const skyPulse=pulses(city,SK,10,0xF0B078,16);
 
 // 2b. 右上角小 101（內容頁）＋繞行的酷AI 泡泡
 const hub=layer();hub.position.set(665,235,0);
-const M101=make101(hub,.20,0x1F3A6E);M101.position.y=0;
+const M101=make101(hub,.20,0x499F9B);M101.position.y=0;
 const ring=[];for(let i=0;i<=64;i++){const a=i/64*Math.PI*2;ring.push(V(Math.cos(a)*70,0,Math.sin(a)*70));}
 const rg=[];for(let i=0;i<64;i++)rg.push(ring[i],ring[i+1]);const rl=hub.lines(rg,0xF0A23B,.5);rl.position.y=95;
 const hb=new THREE.Sprite(hub.mat(new THREE.SpriteMaterial({map:BUB[0]}),1));hb.scale.set(38,24,1);hub.add(hb);
@@ -583,7 +606,7 @@ function frame(t){requestAnimationFrame(frame);
   if(on!==host){host=on;if(!on)return;if(on.classList.contains("t-cover"))on.appendChild(cv);else on.insertBefore(cv,on.firstChild);full=/t-(cover|divider|closing)/.test(on.className);
     idx=[...on.parentNode.children].indexOf(on);pose=((idx%5)-2)*.13;boost=1;}
   if(!host)return;const dt=Math.min((t-last)/1000,.05);last=t;const k=still?1:Math.min(1,dt*5);
-  net.fade(full?.55:0,k);city.fade(full?1:0,k);hub.fade(0,k);boost*=1-Math.min(1,dt*1.6);
+  net.fade(full?.18:0,k);city.fade(full?1:0,k);hub.fade(full?0:.18,k);boost*=1-Math.min(1,dt*1.6);
   if(!still){net.rotation.y+=(pose+Math.sin(t/9000)*.2-net.rotation.y)*Math.min(1,dt*2.5);net.rotation.x=Math.cos(t/11000)*.1;
     M101.rotation.y=t/4000;const a=t/1500;hb.position.set(Math.cos(a)*70,95+Math.sin(t/700)*6,Math.sin(a)*70);
     city.rotation.y=Math.sin(t/12000)*.06;T101.beacon.scale.setScalar((10+8*(.5+.5*Math.sin(t/350)))*.72);bubs.forEach(b=>{b.u.t+=b.u.v*dt;if(b.u.t>1){b.u.t=0;b.u.o=bx[Math.floor(Math.random()*bx.length)];}b.position.set(b.u.o.x+Math.sin(t/1800+b.u.t*6)*12,b.u.o.y+30+b.u.t*260,b.u.o.z);const scale=1+.07*Math.sin(t/1200+b.u.t*6);b.scale.set(70*scale,44*scale,1);b.material.opacity=.95*Math.sin(b.u.t*Math.PI)*city.a;});}

@@ -6,6 +6,8 @@ CONTENT = os.environ.get('DECK', 'content')
 _m = importlib.import_module(CONTENT)
 S, SHOT, ILL = _m.S, _m.SHOT, _m.ILL
 COVER = getattr(_m, 'COVER', None)
+_gp = os.path.join(os.path.dirname(__file__), 'gb2_pages.json')
+GB2 = json.load(open(_gp)) if os.path.exists(_gp) else {}
 OUT = getattr(_m, 'OUT', 'index.html')
 TEMPLATE = getattr(_m, 'TEMPLATE', 'template.html')
 BARTEXT = getattr(_m, 'BARTEXT', '臺北市數位學習中心')
@@ -104,6 +106,17 @@ def render(d):
     if t == "flow5":
         cs = "".join(f'<div class="card"><h3>{e(h)}</h3><p>{e(x)}</p></div>' for h, x in d["steps"])
         return f'{head(d)}<div class="cards c{len(d["steps"])} arrows flow5">{cs}</div>{foot(d)}'
+    if t == "gb2":  # 公版重建：背景圖形層＋獨立圖片＋真的文字（可逐一進場）
+        P = GB2[d["key"]]; k = d["key"]; sc = 1080 / P["h"] if P["h"] > 1080 else 1
+        parts = [f'<img class="gbbg" src="assets/gb2/{k}/bg.jpg" alt="">']
+        imgs = sorted(P["imgs"], key=lambda z: (not z["full"], -(z["w"] * z["h"])))
+        n = 0
+        for z in imgs:
+            delay = 0 if z["full"] else 0.12 + 0.07 * n; n += 0 if z["full"] else 1
+            parts.append(f'<img class="gbimg{" gbfullimg" if z["full"] else ""}" src="assets/gb2/{k}/{z["f"]}" alt="" style="left:{z["x"]}px;top:{z["y"]}px;width:{z["w"]}px;height:{z["h"]}px;animation-delay:{delay:.2f}s">')
+        for i, tx in enumerate(sorted(P["texts"], key=lambda z: (z["y"], z["x"]))):
+            parts.append(f'<div class="gbt" style="left:{tx["x"]}px;top:{tx["y"]}px;min-width:{tx["w"]}px;height:{tx["h"]}px;font-size:{tx["size"]}px;line-height:{tx["h"]}px;color:{tx["color"]};font-weight:{700 if tx["bold"] else 400};animation-delay:{0.25 + 0.035 * i:.2f}s">{html.escape(tx["t"])}</div>')
+        return f'<div class="gb2" style="height:{P["h"]}px;transform:scale({sc:.4f})">' + "".join(parts) + '</div>'
     if t == "gb":  # 公版整頁圖：不加標題、不改排版
         return f'<div class="gbfull"><img src="{d["img"]}" alt="{e(d.get("gbno",""))}"></div>'
     if t == "shot2":
