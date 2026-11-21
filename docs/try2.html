@@ -445,10 +445,10 @@ mark{background:linear-gradient(transparent 65%,#DDF5F1 65%)}
 <div id="timerBadge" title="點一下打開計時設定"><span id="tLeft">05:00</span><span class="bar"><i id="tBar"></i></span></div>
 <div id="edgeGlow"></div>
 <div id="timesUp">時間到！</div>
-<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="g3.html" class="g3btn">上午報告 第三組</button></nav>
+<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="https://norason666.github.io/ai-b3-1121/g3.html" class="g3btn">上午報告 第三組</button></nav>
 <nav id="bar"><button id="bPrev">◀</button><button id="bTimer">⏱ 計時 T</button><button id="bGrid">總覽 O</button><button id="bSup">補充 S</button><button id="bNotes">講稿 N</button><button id="bFull">全螢幕 F</button><button id="bNext">▶</button></nav>
 <script>
-document.getElementById('switchStyle').onclick=()=>{location.href='b.html'+location.hash;};
+const _sw=document.getElementById('switchStyle');if(_sw)_sw.onclick=()=>{location.href='b.html'+location.hash;};
 const SIDE=[{"n": "1", "notes": "4 分鐘：只講最有把握、最想分享的重點。", "sup": ""}, {"n": "2", "notes": "（30 秒）七個風險，每個都配一組英文口訣，教學重點不是禁止 AI，而是讓學生看見風險、說出判斷。", "sup": ""}, {"n": "3", "notes": "（30 秒）錯假訊息 STEP：Source 看來源、Time 看時間、Evidence 看證據、Perspective 看觀點。", "sup": ""}, {"n": "4", "notes": "（30 秒）認知卸載 THINK：先試試、只要提示、自己詮釋、換題再做、確認自己懂。", "sup": ""}, {"n": "5", "notes": "（30 秒）幻覺與偏見 FACT：找出可疑、追問依據、查證比對、修正轉化。", "sup": ""}, {"n": "6", "notes": "（25 秒）同溫層 OPEN：觀察、暫停、探索、說明，它為什麼推薦給我？", "sup": ""}, {"n": "7", "notes": "（25 秒）隱私 SAFE：停下、避免、過濾、釋疑。", "sup": ""}, {"n": "8", "notes": "（25 秒）教育工具化 HUMAN：以人為本、先理解、有意義歷程、真實經驗、人際互動。", "sup": ""}, {"n": "9", "notes": "（25 秒）情感依附 CARE：覺察、認知、主動求助、真實互動。", "sup": ""}, {"n": "10", "notes": "謝謝大家。", "sup": ""}];
 const slides=[...document.querySelectorAll('.slide')];
 let cur=0, tab='sup';

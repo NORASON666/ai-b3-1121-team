@@ -444,10 +444,10 @@ mark{background:linear-gradient(transparent 65%,#DDF5F1 65%)}
 <div id="timerBadge" title="點一下打開計時設定"><span id="tLeft">05:00</span><span class="bar"><i id="tBar"></i></span></div>
 <div id="edgeGlow"></div>
 <div id="timesUp">時間到！</div>
-<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="g3.html" class="g3btn">上午報告 第三組</button></nav>
+<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="https://norason666.github.io/ai-b3-1121/g3.html" class="g3btn">上午報告 第三組</button></nav>
 <nav id="bar"><button id="bPrev">◀</button><button id="bTimer">⏱ 計時 T</button><button id="bGrid">總覽 O</button><button id="bSup">補充 S</button><button id="bNotes">講稿 N</button><button id="bFull">全螢幕 F</button><button id="bNext">▶</button></nav>
 <script>
-document.getElementById('switchStyle').onclick=()=>{location.href='b.html'+location.hash;};
+const _sw=document.getElementById('switchStyle');if(_sw)_sw.onclick=()=>{location.href='b.html'+location.hash;};
 const SIDE=[{"n": "1", "notes": "4 分鐘：只講最有把握、最想分享的重點。", "sup": ""}, {"n": "2", "notes": "（30 秒）使用 AI 前先想：工具類型、年齡、隱私、平臺安全、學習目標；AI 是輔助理解、促進反思的鷹架。", "sup": ""}, {"n": "3", "notes": "（40 秒）表 4-1：教育型 AI 和通用型 AI 的差別，國中小優先用教育型。", "sup": ""}, {"n": "4", "notes": "用公版的表 4-1 對照：通用型 AI 是使用者要什麼就給什麼；酷AI 從課綱單元出發，用單一身分驗證登入，老師看得到學生作答與課後分析。", "sup": "<article class=\"sup\"><div class=\"sup-k\"><span class=\"kind\">對照</span><span class=\"ev ev-講者整理\">講者整理</span></div>\n<h4>對照依據</h4><ul><li>表 4-1：指引第四章〈教育型 AI 與通用型 AI 比較表〉</li><li>酷AI 登入方式：臺北市校園單一身分驗證、教育雲端帳號（2026-09 實測）</li><li>A2 推薦名單：臺北酷課雲 115.10.16 起</li></ul><p class=\"sup-src\"></p></article>"}, {"n": "5", "notes": "（40 秒）紅黃綠燈：綠燈鼓勵、黃燈要查證並標示、紅燈違反倫理與誠信。寫教案一定要把燈號寫到具體行為。", "sup": ""}, {"n": "6", "notes": "（30 秒）AIPACK：在這個單元、用這種教法、配這樣的 AI。", "sup": ""}, {"n": "7", "notes": "（30 秒）因材網輔助四學：自學、共學、互學、導學。", "sup": ""}, {"n": "8", "notes": "對應公版的 AIPACK 在教與學上的應用：老師上課時看得到全班作答，下課分析再依 AI 評定結果推薦課程。", "sup": ""}, {"n": "9", "notes": "謝謝大家。", "sup": ""}];
 const slides=[...document.querySelectorAll('.slide')];
 let cur=0, tab='sup';

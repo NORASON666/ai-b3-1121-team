@@ -2,6 +2,7 @@
 import content_try1 as A, content_try2b as M2, content_try3 as B, content_g3m3 as C
 SHOT, ILL = A.SHOT, A.ILL
 OUT = "try.html"
+CHIP = [("m1", "模組一"), ("m2", "模組二"), ("m3", "模組三"), ("end", "教案")]
 TEMPLATE = "template_a.html"
 COVER = {"org": "B3 儲備講師試講｜臺北市第三組", "h1": "模組一、二、三＋教案<br><mark>試講</mark>",
          "hand": "每段約 4 分鐘｜按 N 看講稿", "meta": "公版重點頁＋臺北補充＋教案說課",

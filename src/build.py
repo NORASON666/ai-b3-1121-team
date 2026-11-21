@@ -9,6 +9,7 @@ COVER = getattr(_m, 'COVER', None)
 _gp = os.path.join(os.path.dirname(__file__), 'gb2_pages.json')
 GB2 = json.load(open(_gp)) if os.path.exists(_gp) else {}
 OUT = getattr(_m, 'OUT', 'index.html')
+CHIP = getattr(_m, 'CHIP', None)  # 左上角導覽按鈕 [(go, 標籤)]；有設就整排換掉
 TEMPLATE = getattr(_m, 'TEMPLATE', 'template.html')
 BARTEXT = getattr(_m, 'BARTEXT', '臺北市數位學習中心')
 
@@ -242,5 +243,7 @@ for d in S:
 
 tpl = open(os.path.join(BASE, TEMPLATE)).read()
 out = tpl.replace("<!--SLIDES-->", "\n".join(slides)).replace("/*SIDE*/[]", json.dumps(side, ensure_ascii=False)).replace("/*BARTEXT*/'臺北市數位學習中心'", json.dumps(BARTEXT, ensure_ascii=False))
+if CHIP:
+    out = re.sub(r'<nav id="secchip">.*?</nav>', '<nav id="secchip">' + "".join(f'<button data-go="{g}">{html.escape(l)}</button>' for g, l in CHIP) + '</nav>', out, count=1, flags=re.S)
 open(os.path.join(BASE, "..", "docs", OUT), "w").write(out)
 print("slides", len(slides), "with supplements", sum(1 for s in side if s["sup"]))

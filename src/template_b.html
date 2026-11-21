@@ -421,10 +421,10 @@ mark{background:#ffd23f;color:#111}.cover h1 mark{border-bottom:7px solid #111}
 <div id="timerBadge" title="點一下打開計時設定"><span id="tLeft">05:00</span><span class="bar"><i id="tBar"></i></span></div>
 <div id="edgeGlow"></div>
 <div id="timesUp">時間到！</div>
-<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="g3.html" class="g3btn">上午報告 第三組</button></nav>
+<nav id="secchip"><button data-go="nav">導覽 H</button><button data-go="m1">模組一 1</button><button data-go="m2">模組二 2</button><button data-go="m3">模組三 3</button><button id="switchStyle">換另一套風格</button><button data-href="https://norason666.github.io/ai-b3-1121/g3.html" class="g3btn">上午報告 第三組</button></nav>
 <nav id="bar"><button id="bPrev">◀</button><button id="bTimer">⏱ 計時 T</button><button id="bGrid">總覽 O</button><button id="bSup">補充 S</button><button id="bNotes">講稿 N</button><button id="bFull">全螢幕 F</button><button id="bNext">▶</button></nav>
 <script>
-document.getElementById('switchStyle').onclick=()=>{location.href='a.html'+location.hash;};
+const _sw=document.getElementById('switchStyle');if(_sw)_sw.onclick=()=>{location.href='a.html'+location.hash;};
 const SIDE=/*SIDE*/[];
 const slides=[...document.querySelectorAll('.slide')];
 let cur=0, tab='sup';
