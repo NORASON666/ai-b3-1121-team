@@ -85,6 +85,7 @@ def main():
         data["m2-5"]["texts"] = [x for x in data["m2-5"]["texts"] if not (x["t"].strip().isdigit() and x["size"] >= 70 and x["color"] == "#000000")]
     json.dump(data, open(jp, "w"), ensure_ascii=False)
     print("pages", len(data))
+    # 抽完一定要跑清理：python3.13 tools/clean_gb.py（去疊影、去指定字、略過重複頁）
 
 
 main()
