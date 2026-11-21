@@ -386,6 +386,18 @@ mark{background:#ffd23f;color:#111}.cover h1 mark{border-bottom:7px solid #111}
 @keyframes gbrise{0%{opacity:0;transform:translateY(22px)}100%{opacity:1;transform:none}}
 @keyframes gbfade{0%{opacity:0;transform:scale(1.04)}100%{opacity:1;transform:none}}
 }
+/* 公版重建頁的臺北外框：公版內容縮成 90% 放在中間，四周是本套主題底色＋臺北天際線帶＋酷AI */
+.slide.t-gb2{background:var(--paper,#F4FBFA)!important}
+.slide.t-gb2 .gbframe{position:absolute;left:96px;top:14px;width:1728px;height:972px;overflow:hidden;border-radius:18px;background:#fff;box-shadow:0 14px 40px rgba(22,52,59,.22);border:3px solid #2BB5A8}
+.slide.t-gb2 .gb2{transform-origin:top left}
+.tpband{position:absolute;left:0;right:0;bottom:0;height:94px;pointer-events:none;z-index:2}
+.tpsky{position:absolute;left:0;bottom:0;width:100%;height:70px;fill:#2BB5A8;opacity:.28}
+.tpsky .t101{fill:#1E8F85;opacity:1}
+.tplogo{position:absolute;left:110px;bottom:14px;display:flex;align-items:center;gap:10px;font:900 20px "Noto Sans TC";color:#fff;background:linear-gradient(90deg,#2BB5A8,#5CCFC2);border-radius:999px;padding:6px 16px 6px 10px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.tplogo img{height:20px}
+.tpmascot{position:absolute;right:20px;bottom:6px;height:104px}
+.slide.t-gb2 .gbno{right:110px;bottom:10px;z-index:3}
+.slide.t-gb2{background:#FFD23F!important;background-image:radial-gradient(#11111122 1.5px,transparent 1.5px)!important;background-size:14px 14px!important}.slide.t-gb2 .gbframe{border:4px solid #111;border-radius:6px;box-shadow:10px 10px 0 #111}.tpsky{fill:#111;opacity:.85}.tpsky .t101{fill:#E85E25}
 </style>
 </head>
 <body>

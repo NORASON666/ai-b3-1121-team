@@ -116,7 +116,10 @@ def render(d):
             parts.append(f'<img class="gbimg{" gbfullimg" if z["full"] else ""}" src="assets/gb2/{k}/{z["f"]}" alt="" style="left:{z["x"]}px;top:{z["y"]}px;width:{z["w"]}px;height:{z["h"]}px;animation-delay:{delay:.2f}s">')
         for i, tx in enumerate(sorted(P["texts"], key=lambda z: (z["y"], z["x"]))):
             parts.append(f'<div class="gbt" style="left:{tx["x"]}px;top:{tx["y"]}px;min-width:{tx["w"]}px;height:{tx["h"]}px;font-size:{tx["size"]}px;line-height:{tx["h"]}px;color:{tx["color"]};font-weight:{700 if tx["bold"] else 400};animation-delay:{0.25 + 0.035 * i:.2f}s">{html.escape(tx["t"])}</div>')
-        return f'<div class="gb2" style="height:{P["h"]}px;transform:scale({sc:.4f})">' + "".join(parts) + '</div>'
+        sky = ('<svg class="tpsky" viewBox="0 0 1920 90" preserveAspectRatio="none"><path d="M0 90V70h60V52h40v18h50V40h36v30h44V58h30v12h70V46h40v24h60V34h28v36h50V60h46V48h34v22h80V30h30v40h40V56h50v14h60V44h44v26h56V62h36v8h40V20l6-6h4l6 6v-8l8-8 8 8v8l6-6h4l6 6v50h50V50h40v20h60V38h30v32h44V58h40v12h70V44h36v26h56V60h40v10h60V36h34v34h50V54h44v16h60V48h30v22h66V40h40v30h50V58h34v12h40V90z"/>'
+               '<path class="t101" d="M955 90V64h-6l3-6h-3l3-6h-3l3-6h-3l3-6h-3l3-6h-3l3-6h-3l3-6h-2l2-6v-8h1V2h2v6h1v8l2 6h-2l3 6h-3l3 6h-3l3 6h-3l3 6h-3l3 6h-3l3 6h-3l3 6h-6v26z"/></svg>')
+        band = f'<div class="tpband">{sky}<span class="tplogo"><img src="assets/shots/kuai_logo.png" alt="酷AI">臺北酷課雲 × 酷AI</span><img class="tpmascot" src="assets/shots/kuai_scene.png" alt=""></div>'
+        return f'<div class="gbframe"><div class="gb2" style="height:{P["h"]}px;transform:scale({sc * 0.9:.4f})">' + "".join(parts) + '</div></div>' + band
     if t == "gb":  # 公版整頁圖：不加標題、不改排版
         return f'<div class="gbfull"><img src="{d["img"]}" alt="{e(d.get("gbno",""))}"></div>'
     if t == "shot2":
