@@ -33,14 +33,26 @@ def page_parts(doc, pno, key):
             spans = [sp for sp in ln["spans"] if sp["text"].strip()]
             if not spans:
                 continue
-            x0, y0, x1, y1 = ln["bbox"]
-            txt = "".join(sp["text"] for sp in ln["spans"])
-            sp = max(spans, key=lambda z: len(z["text"]))
-            bold = bool(sp["flags"] & 16) or "Bold" in sp["font"] or "Black" in sp["font"] or "Heavy" in sp["font"]
             if abs(ln["dir"][1]) > 0.5:  # 直排或旋轉的字留在背景
                 continue
-            out["texts"].append({"x": round(x0 * s), "y": round(y0 * s), "w": round((x1 - x0) * s), "h": round((y1 - y0) * s),
-                                 "size": round(sp["size"] * s, 1), "color": hexcolor(sp["color"]), "bold": bold, "t": txt})
+            # 同一行裡字級或顏色不同的字分組輸出（例：「…歷程」後面接的大字「HUMAN」）
+            groups = []
+            for sp in ln["spans"]:
+                key2 = (round(sp["size"]), sp["color"])
+                if groups and groups[-1][0] == key2:
+                    groups[-1][1].append(sp)
+                else:
+                    groups.append((key2, [sp]))
+            for _, sps in groups:
+                txt = "".join(z["text"] for z in sps)
+                if not txt.strip():
+                    continue
+                gx0 = min(z["bbox"][0] for z in sps); gy0 = min(z["bbox"][1] for z in sps)
+                gx1 = max(z["bbox"][2] for z in sps); gy1 = max(z["bbox"][3] for z in sps)
+                sp = max(sps, key=lambda z: len(z["text"]))
+                bold = bool(sp["flags"] & 16) or "Bold" in sp["font"] or "Black" in sp["font"] or "Heavy" in sp["font"]
+                out["texts"].append({"x": round(gx0 * s), "y": round(gy0 * s), "w": round((gx1 - gx0) * s), "h": round((gy1 - gy0) * s),
+                                     "size": round(sp["size"] * s, 1), "color": hexcolor(sp["color"]), "bold": bold, "t": txt})
             rects.append(fitz.Rect(ln["bbox"]))
 
     # 2) 點陣圖保留在背景層（Canva 圖片有裁切遮罩，單獨拆出會跑位）
@@ -68,6 +80,9 @@ def main():
                 continue
             data[key] = page_parts(doc, p, key)
         doc.close()
+    # 模組二 p.5 七大風險總覽上的黑色大數字 1～6 是講師分組用的 Padlet 連結（Nora 2026-11-21：去掉）
+    if "m2-5" in data:
+        data["m2-5"]["texts"] = [x for x in data["m2-5"]["texts"] if not (x["t"].strip().isdigit() and x["size"] >= 70 and x["color"] == "#000000")]
     json.dump(data, open(jp, "w"), ensure_ascii=False)
     print("pages", len(data))
 
