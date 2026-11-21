@@ -25,6 +25,7 @@ def e(s):
     # 跳脫後支援 **粗體** 與換行
     s = html.escape(s or "")
     s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
+    s = re.sub(r"!!(.+?)!!", r'<span class="red">\1</span>', s, flags=re.S)  # 紅字（第三組補的提示語）
     return s.replace("\n", "<br>")
 
 
@@ -169,6 +170,10 @@ def render(d):
         trs = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in r) + "</tr>" for r in d["rows"])
         cls = "tbl compact" if d.get("compact") else "tbl"
         return f'{head(d)}<table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table>{foot(d)}'
+    if t == "four":  # 四欄表（階段／教師任務／學生任務／AI 應用與提示語），放大版
+        th = "".join(f"<th>{x}</th>" for x in ["階段", "教師任務", "學生任務", "AI 應用與提示語"])
+        trs = "".join(f'<tr><th class="stage">{e(r[0])}</th>' + "".join(f"<td>{e(c)}</td>" for c in r[1:]) + "</tr>" for r in d["rows"])
+        return f'{head(d)}<table class="four" style="--fs:{d.get("fs", 22)}px;--h:{d.get("h", "auto")}"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table>{foot(d)}'
     if t == "stats":
         cs = "".join(f'<div class="card stat"><div class="big">{e(n)}</div><h3>{e(l)}</h3>{f"<p>{e(s)}</p>" if s else ""}</div>' for n, l, s in d["stats"])
         return f'{head(d)}<div class="cards c{len(d["stats"])}">{cs}</div>{foot(d)}'
