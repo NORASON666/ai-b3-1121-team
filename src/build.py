@@ -170,6 +170,8 @@ def render(d):
         trs = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in r) + "</tr>" for r in d["rows"])
         cls = "tbl compact" if d.get("compact") else "tbl"
         return f'{head(d)}<table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table>{foot(d)}'
+    if t == "rich":  # 原樣排版的文字（使用者提供的文章截圖轉文字），html 直接放
+        return f'{head(d)}<div class="rich" style="--fs:{d.get("fs", 30)}px">{d["html"]}</div>{foot(d)}'
     if t == "four":  # 四欄表（階段／教師任務／學生任務／AI 應用與提示語），放大版
         th = "".join(f"<th>{x}</th>" for x in ["階段", "教師任務", "學生任務", "AI 應用與提示語"])
         trs = "".join(f'<tr><th class="stage">{e(r[0])}</th>' + "".join(f"<td>{e(c)}</td>" for c in r[1:]) + "</tr>" for r in d["rows"])
